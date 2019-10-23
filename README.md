@@ -79,7 +79,7 @@ Here are just the first two slides of [the business presentation. Check it for m
  
  ## 👪 Contributors
 
-You are welcome! We have [roadmap of planned changes](#-roadmap) - just pick any task you want, impelement it and make pull request! Or write issue to discuss problems and ideas.
+You are welcome! We have [roadmap of planned changes](#-roadmap) - just pick any task you want, implement it and make pull request! Or write issue to discuss problems and ideas.
 
 Current contributors list:
 

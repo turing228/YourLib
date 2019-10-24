@@ -75,11 +75,14 @@ When the installation is complete, run with a version of your choice :
 | | Add redux-persist to avoid full refresh of data every app start | |
 | | Implement the store config | |
 | | Implement actions and reducers | |
+| | Embed the solution in (screens) code | |
 |--|--|--|
 | unplanned | **Feel free to implement this or suggest something new and make a pull request!** | |
 | | Make the color-theme selectable | |
 | | Implement functionality for adding new notes via "Share" button | |
 | | "Add image" | |
+| | Image synchronization with the Amazon Database or other image hosting | |
+| | Implement nice fast-preview/view of links | |
 |--|--|--|
 | in future | **Kickstarter Сampaign** | |
 | | Implement smart Machine Learning based suggestions of categorizing | |

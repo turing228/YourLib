@@ -17,9 +17,9 @@ YourLib
     <img src="https://img.shields.io/github/stars/turing228/YourLib?style=social" title="Stars"/>
 </p>
 
-How often do you save important information by sending to yourself on social networks and forget to use it?
+How often do you save important information by sending it to yourself on social networks and forget to use it?
 
-Cross-platform open-sourse project **YourLib** based on React Native framework let you categorize immediately it in a tree style (e.g.  ”school”, ”work”, ”home” and in each ”events”, ”links”, ”books”) and sync it with Google Firebase cloud.
+Cross-platform open-source project **YourLib** based on React Native framework lets you categorize immediately it in a tree-style (e.g.  ”school”, ”work”, ”home” and in each ”events”, ”links”, ”books”) and sync it with Google Firebase cloud.
 
 ## Contents
 
@@ -46,7 +46,7 @@ Configure Firebase to be used with React Native application according to [offici
 
 Create Firebase Realtime Database with rules from file [database_rules.txt](/database_rules.txt)
 
-When installation is complete, run with version of your choice :
+When the installation is complete, run with a version of your choice :
 
     react-native run-ios
     # or
@@ -70,7 +70,7 @@ Here are just the first two slides of [the business presentation. Check it for m
 
 <img src="/examples/Inside%20directory.png" width="1080" title="Inside the directory">
 
-## 📋 Tecnhologies
+## 📋 Technologies
 
 - [React Native](https://facebook.github.io/react-native/) - Facebook cross-platform (Android/IOS) mobile app development framework
 - [redux-persist](https://github.com/rt2zz/redux-persist) - to store data on the mobile device
@@ -79,7 +79,7 @@ Here are just the first two slides of [the business presentation. Check it for m
  
  ## 👪 Contributors
 
-You are welcome! We have [roadmap of planned changes](#-roadmap) - just pick any task you want, implement it and make pull request! Or write issue to discuss problems and ideas.
+You are welcome! We have [roadmap of planned changes](#-roadmap) - just pick any task you want, implement it and make a pull request! Or write an issue to discuss problems and ideas.
 
 Current contributors list:
 

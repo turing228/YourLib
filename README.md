@@ -27,7 +27,7 @@ Cross-platform open-source project **YourLib** based on React Native framework l
 - [Roadmap](#-roadmap)
 - [Motivation](#-motivation)
 - [Screens](#-screens)
-- [Tecnhologies](#-tecnhologies)
+- [Technologies](#-technologies)
 - [Contributors](#-contributors)
 - [License](#-license)
 
@@ -54,7 +54,38 @@ When the installation is complete, run with a version of your choice :
 
 ## 🚄 Roadmap
 
-1. Make roadmap
+| Version | Feature/Action Description | Date |
+|:--:|--|:--:|
+| 0.1 | **User Interface** | |
+| | Create default project |  |
+| | Make the main screen: directories and their circle avatars | |
+| | Make the main screen: clickable subdirectories; add new note button | |
+| | Make the main screen: add new subdirectory button | |
+| | Make the inside a subdirectory screen: gifted chat UI | |
+| | Make the inside a subdirectory screen: goback arrow in the header | |
+|--|--|--|
+| 0.2 | **Cloud Sync** | |
+| | Connect Firebase auth with the project | |
+| | Make registration by mobile number screens | |
+| | Connect Firebase realtime database with the project | |
+| | Write rules for the realtime database to store "notes" | |
+| | Store/download/sync data with the realtime database | |
+|--|--|--|
+| 0.3 | **Offline Work** | |
+| | Add redux-persist to avoid full refresh of data every app start | |
+| | Implement the store config | |
+| | Implement actions and reducers | |
+|--|--|--|
+| unplanned | **Feel free to implement this or suggest something new and make a pull request!** | |
+| | Make the color-theme selectable | |
+| | Implement functionality for adding new notes via "Share" button | |
+| | "Add image" | |
+|--|--|--|
+| in future | **Kickstarter Сampaign** | |
+| | Implement smart Machine Learning based suggestions of categorizing | |
+| | Implement smart advertisement based on notes | |
+| | Website | |
+| | Desktop application | |
 
 ## 🏆 Motivation
 

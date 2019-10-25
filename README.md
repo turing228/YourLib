@@ -11,10 +11,14 @@ YourLib
     <a href="https://github.com/turing228/YourLib/graphs/contributors">
         <img src="https://img.shields.io/github/contributors/turing228/YourLib?color=orange" title="Contributors"/>
     </a>
-    <img src="https://img.shields.io/github/v/release/turing228/YourLib" title="Release version"/>
+    <a href="https://github.com/turing228/YourLib/releases">
+        <img src="https://img.shields.io/github/v/release/turing228/YourLib" title="Release version"/>
+    </a>
     <img src="https://img.shields.io/github/repo-size/turing228/YourLib" title="Repository size"/>
     <img src="https://img.shields.io/badge/build-passing-brightgreen" title="Build passing"/>
-    <img src="https://img.shields.io/github/stars/turing228/YourLib?style=social" title="Stars"/>
+    <a href="https://github.com/turing228/YourLib/stargazers">
+        <img src="https://img.shields.io/github/stars/turing228/YourLib?style=social" title="Stars"/>
+    </a>
 </p>
 
 How often do you save important information by sending it to yourself on social networks and forget to use it?

@@ -40,7 +40,7 @@ function CreateNewSubirectory({ navigation }) {
     return (
         <View>
             {navigation.getParam("editing") &&
-                <TouchableOpacity style={{ flexDirection: 'row' }} onPress={() => navigation.navigate('CreateNewSubirectory')}>
+                <TouchableOpacity style={{ flexDirection: 'row' }} onPress={() => navigation.navigate('CreateNewSubdirectory')}>
                     <Text style={styles.createNewSubdirectoryText}>+ create new subdirectory</Text>
                 </TouchableOpacity>}
         </View>

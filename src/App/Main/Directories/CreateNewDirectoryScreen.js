@@ -7,7 +7,7 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 class CreateNewDirectoryView extends Component {
     static navigationOptions = ({navigation}: Props) => ({
         headerTitle: (
-            <Text style={styles.headerTitleText}>Create New Directory</Text>
+            <Text style={styles.headerTitleText}>New Directory</Text>
         ),
         headerRight: <Icon name="check-bold" type="MaterialCommunityIcons" style={styles.checkIcon} />,
         headerTintColor: "white",

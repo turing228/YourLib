@@ -103,13 +103,6 @@ class AllNotesView extends Component {
         )
     }
 
-    renderInputToolbar(props) {
-        return (
-            null
-            // <InputToolbar {...props} containerStyle={{borderTopWidth: 1.5, borderTopColor: '#333'}} />
-        )
-    }
-
     render() {
         return (
             <SafeAreaView style={styles.safeAreaView}>
@@ -121,7 +114,9 @@ class AllNotesView extends Component {
                     }}
                     renderUsernameOnMessage={true}
                     renderBubble={this.renderBubble}
-                    renderInputToolbar={this.renderInputToolbar}
+                    renderInputToolbar={() => null}
+                    renderComposer={() => null}
+                    minInputToolbarHeight={0}
                 />
             </SafeAreaView>
         )

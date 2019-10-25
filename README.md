@@ -70,7 +70,7 @@ When the installation is complete, run with a version of your choice :
 | | Make the inside a subdirectory screen: gifted chat UI | ✔️ 25.10.2019 |
 | | Make the inside a subdirectory screen: goback arrow in the header | ✔️ 25.10.2019 |
 | | Make "all notes" screen | ✔️ 25.10.2019 |
-| | Make screenshots and add them to the repository | |
+| | Make screenshots and add them to the repository | ✔️ 25.10.2019 |
 |--|--|--|
 | 0.2 | **Cloud Sync** | |
 | | Connect Firebase auth with the project | |

@@ -23,15 +23,14 @@ Cross-platform open-source project **YourLib** based on React Native framework l
 
 ## Contents
 
-- [YourLib](#yourlib)
-- [Contents](#contents)
-- [🚀 Quickstart](#%f0%9f%9a%80-quickstart)
-- [🚄 Roadmap](#%f0%9f%9a%84-roadmap)
-- [🏆 Motivation](#%f0%9f%8f%86-motivation)
-- [📸 Screens](#%f0%9f%93%b8-screens)
-- [📋 Technologies](#%f0%9f%93%8b-technologies)
-- [👪 Contributors](#%f0%9f%91%aa-contributors)
-- [📄 License](#%f0%9f%93%84-license)
+- [🚀 Quickstart](#-quickstart)
+- [🍔 Screenshots](#-screenshots)
+- [🚄 Roadmap](#-roadmap)
+- [🏆 Motivation](#-motivation)
+- [📸 Concept](#-concept)
+- [📋 Technologies](#-technologies)
+- [👪 Contributors](#-contributors)
+- [📄 License](#-license)
 
 ## 🚀 Quickstart
 
@@ -54,23 +53,39 @@ When the installation is complete, run with a version of your choice :
     # or
     react-native run-android
 
+## 🍔 Screenshots
+
+<p align="center">
+  <img src="/examples/UI/Home%20Page.jpg" width="250" title="Home Page">
+  <img src="/examples/UI/Home%20Page%20create%20new.jpg" width="250" title="Home Page create new">
+</p>
+<p align="center">
+  <img src="/examples/UI/Create%20New%20Directory.jpg" width="250" title="Create New Directory">
+  <img src="/examples/UI/Create%20New%20Directory%20Internships.jpg" width="250" title="Create New Directory Internships">
+  <img src="/examples/UI/Create%20New%20Subdirectory.jpg" width="250" title="Create New Subdirectory">
+</p>
+<p align="center">
+  <img src="/examples/UI/Inside%20Subdirectory.jpg" width="250" title="Inside Subdirectory">
+  <img src="/examples/UI/All%20Notes%20Page.jpg" width="250" title="All Notes Page">
+</p>
+
 ## 🚄 Roadmap
 
 | Version | Feature/Action Description | Date |
 |:--:|--|:--:|
-| 0.1 | **User Interface** | |
-| | Create default project | ✔️ 25.10.2019 |
-| | Implement tab navigation for "directories" and "all notes" | ✔️ 25.10.2019 |
-| | Make the main screen: directories, their circle avatars, and subdirectories list | ✔️ 25.10.2019 |
-| | Make the main screen: clickable subdirectories | ✔️ 25.10.2019 |
-| | Make the main screen: add new directory button and the special screen | ✔️ 25.10.2019 |
-| | Make the main screen: add new subdirectory button and the special screen | ✔️ 25.10.2019 |
-| | Make the inside a subdirectory screen: hide topTabBar | ✔️ 25.10.2019 |
-| | Make the inside a subdirectory screen: subdirectory data transfer from directories screen to specific subdirectory screen | ✔️ 25.10.2019 |
-| | Make the inside a subdirectory screen: gifted chat UI | ✔️ 25.10.2019 |
-| | Make the inside a subdirectory screen: goback arrow in the header | ✔️ 25.10.2019 |
-| | Make "all notes" screen | ✔️ 25.10.2019 |
-| | Make screenshots and add them to the repository | ✔️ 25.10.2019 |
+| 0.1 | **User Interface** | ✔️25.10.2019 |
+| | Create default project | ✔️25.10.2019 |
+| | Implement tab navigation for "directories" and "all notes" | ✔️25.10.2019 |
+| | Make the main screen: directories, their circle avatars, and subdirectories list | ✔️25.10.2019 |
+| | Make the main screen: clickable subdirectories | ✔️25.10.2019 |
+| | Make the main screen: add new directory button and the special screen | ✔️25.10.2019 |
+| | Make the main screen: add new subdirectory button and the special screen | ✔️25.10.2019 |
+| | Make the inside a subdirectory screen: hide topTabBar | ✔️25.10.2019 |
+| | Make the inside a subdirectory screen: subdirectory data transfer from directories screen to specific subdirectory screen | ✔️25.10.2019 |
+| | Make the inside a subdirectory screen: gifted chat UI | ✔️25.10.2019 |
+| | Make the inside a subdirectory screen: goback arrow in the header | ✔️25.10.2019 |
+| | Make "all notes" screen | ✔️25.10.2019 |
+| | Make screenshots and add them to the repository | ✔️25.10.2019 |
 |--|--|--|
 | 0.2 | **Cloud Sync** | |
 | | Connect Firebase auth with the project | |
@@ -108,7 +123,7 @@ Here are just the first two slides of [the business presentation. Check it for m
 
 <img src="/examples/Second%20slide%20of%20the%20presentation.png" width="1080" title="Second Slide of the Presentation">
 
-## 📸 Screens
+## 📸 Concept
 
 <img src="/examples/Main%20window.png" width="1080" title="Main window">
 

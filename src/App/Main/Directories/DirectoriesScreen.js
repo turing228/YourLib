@@ -226,6 +226,7 @@ class DirectoriesView extends Component {
                     renderItem={({ item }) => <Directory item={item} navigation={this.props.navigation} />}
                     keyExtractor={item => item.id}
                     ListHeaderComponent={this.ListHeader()}
+                    paddingTop={5}
                 />
             </SafeAreaView>
         )
@@ -236,7 +237,6 @@ const styles = StyleSheet.create({
     safeAreaView: {
         backgroundColor: 'aliceblue',
         flex: 1,
-        paddingTop: 5,
     },
     item: {
         marginVertical: 8,

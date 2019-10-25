@@ -69,7 +69,7 @@ When the installation is complete, run with a version of your choice :
 | | Make the inside a subdirectory screen: subdirectory data transfer from directories screen to specific subdirectory screen | ✔️ 25.10.2019 |
 | | Make the inside a subdirectory screen: gifted chat UI | ✔️ 25.10.2019 |
 | | Make the inside a subdirectory screen: goback arrow in the header | ✔️ 25.10.2019 |
-| | Make the "all notes" screen | |
+| | Make "all notes" screen | ✔️ 25.10.2019 |
 | | Make screenshots and add them to the repository | |
 |--|--|--|
 | 0.2 | **Cloud Sync** | |

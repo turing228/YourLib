@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { SafeAreaView, ScrollView, StyleSheet, Text, FlatList, View, TouchableOpacity } from 'react-native';
+import { SafeAreaView, StyleSheet, Text, FlatList, View, TouchableOpacity } from 'react-native';
 
 import { Avatar } from 'react-native-elements';
 
@@ -30,9 +30,20 @@ String.prototype.toRGB = function () {
 
 function Subdirectory({ item, navigation }) {
     return (
-        <TouchableOpacity style={styles.subdirectory} onPress={() => navigation.navigate('Subdirectory')}>
+        <TouchableOpacity style={styles.subdirectory} onPress={() => navigation.navigate('Subdirectory', { subdirectory: item })}>
             <Text style={styles.subdirectoryTitle}>{item.title}</Text>
         </TouchableOpacity>
+    );
+}
+
+function CreateNewSubirectory({ navigation }) {
+    return (
+        <View>
+            {navigation.getParam("editing") &&
+                <TouchableOpacity style={{ flexDirection: 'row' }} onPress={() => navigation.navigate('CreateNewSubirectory')}>
+                    <Text style={styles.createNewSubdirectoryText}>+ create new subdirectory</Text>
+                </TouchableOpacity>}
+        </View>
     );
 }
 
@@ -51,11 +62,7 @@ function Directory({ item, navigation }) {
                     data={item.subdirectories}
                     renderItem={({ item }) => <Subdirectory item={item} navigation={navigation} />}
                     keyExtractor={item => item.id}
-                    ListFooterComponent={navigation.getParam("editing") &&
-                    <TouchableOpacity style={{flexDirection: 'row'}} onPress={() => navigation.navigate('CreateNewSubirectory')}>
-                        <Text style={styles.createNewSubdirectoryText}>+ create new subdirectory</Text>
-                    </TouchableOpacity>
-                }
+                    ListFooterComponent={<CreateNewSubirectory navigation={navigation} />}
                 />
             </View>
         </View>
@@ -80,6 +87,13 @@ class DirectoriesView extends Component {
                         {
                             id: '0',
                             title: 'events',
+                            messages: [
+                                {
+                                    id: '0',
+                                    text: 'Celebrating grandmother\'s birthday at 18:00 on October 29',
+                                    timestamp: '123',
+                                },
+                            ],
                         },
                         {
                             id: '1',
@@ -112,6 +126,23 @@ class DirectoriesView extends Component {
                         {
                             id: '0',
                             title: 'events',
+                            messages: [
+                                {
+                                    id: '0',
+                                    text: 'Test work on mathematical analysis 15:20 November 2',
+                                    timestamp: '1256',
+                                },
+                                {
+                                    id: '1',
+                                    text: 'Startup workshop 18:30 on November 10 in office 285',
+                                    timestamp: '12578',
+                                },
+                                {
+                                    id: '2',
+                                    text: 'Deadline for homework on algorithms and data structures November 15',
+                                    timestamp: '125123',
+                                },
+                            ],
                         },
                         {
                             id: '1',
@@ -187,12 +218,7 @@ const styles = StyleSheet.create({
         flex: 1,
         paddingTop: 5,
     },
-    // scrollView: {
-        // backgroundColor: 'white',
-    // },
     item: {
-        // backgroundColor: '#f9c2ff',
-        // padding: 20,
         marginVertical: 8,
         marginHorizontal: 16,
         flexDirection: 'row',
@@ -204,7 +230,6 @@ const styles = StyleSheet.create({
     subdirectories: {
         marginLeft: 10,
         flex: 1,
-        // paddingLeft: 10,
         paddingTop: 5,
         paddingLeft: 16,
         backgroundColor: "white",
@@ -214,7 +239,6 @@ const styles = StyleSheet.create({
     },
     subdirectory: {
         marginBottom: 16,
-        // marginHorizontal: 16,
     },
     subdirectoryTitle: {
         fontSize: 18,

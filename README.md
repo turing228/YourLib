@@ -23,13 +23,15 @@ Cross-platform open-source project **YourLib** based on React Native framework l
 
 ## Contents
 
-- [Quickstart](#-quickstart)
-- [Roadmap](#-roadmap)
-- [Motivation](#-motivation)
-- [Screens](#-screens)
-- [Technologies](#-technologies)
-- [Contributors](#-contributors)
-- [License](#-license)
+- [YourLib](#yourlib)
+- [Contents](#contents)
+- [🚀 Quickstart](#%f0%9f%9a%80-quickstart)
+- [🚄 Roadmap](#%f0%9f%9a%84-roadmap)
+- [🏆 Motivation](#%f0%9f%8f%86-motivation)
+- [📸 Screens](#%f0%9f%93%b8-screens)
+- [📋 Technologies](#%f0%9f%93%8b-technologies)
+- [👪 Contributors](#%f0%9f%91%aa-contributors)
+- [📄 License](#%f0%9f%93%84-license)
 
 ## 🚀 Quickstart
 
@@ -57,7 +59,7 @@ When the installation is complete, run with a version of your choice :
 | Version | Feature/Action Description | Date |
 |:--:|--|:--:|
 | 0.1 | **User Interface** | |
-| | Create default project |  |
+| | Create default project | ✔️ 25.10.2019 |
 | | Make the main screen: directories and their circle avatars | |
 | | Make the main screen: clickable subdirectories; add new note button | |
 | | Make the main screen: add new subdirectory button | |

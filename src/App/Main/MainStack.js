@@ -39,7 +39,7 @@ const Tabs = createMaterialTopTabNavigator(
                 shadowOpacity: 0,           // remove shadow on iOS
             },
             indicatorStyle: {
-                backgroundColor: "dodgerblue",
+                backgroundColor: "steelblue",
             },
         },
     }

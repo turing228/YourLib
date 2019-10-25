@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
         },
         shadowRadius: 0,
         elevation: 0,
-        backgroundColor: "dodgerblue",
+        backgroundColor: "steelblue",
     },
 })
 

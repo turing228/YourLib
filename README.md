@@ -61,7 +61,7 @@ When the installation is complete, run with a version of your choice :
 | 0.1 | **User Interface** | |
 | | Create default project | ✔️ 25.10.2019 |
 | | Implement tab navigation for "directories" and "all notes" | ✔️ 25.10.2019 |
-| | Make the main screen: directories and their circle avatars | |
+| | Make the main screen: directories and their circle avatars | ✔️ 25.10.2019 |
 | | Make the main screen: clickable subdirectories; add new note button | |
 | | Make the main screen: add new subdirectory button | |
 | | Make the inside a subdirectory screen: gifted chat UI | |

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { SafeAreaView, ScrollView, StyleSheet, Text, FlatList, View } from 'react-native';
+import { SafeAreaView, ScrollView, StyleSheet, Text, FlatList, View, TouchableOpacity } from 'react-native';
 
 import { Avatar } from 'react-native-elements';
 
@@ -28,15 +28,17 @@ String.prototype.toRGB = function () {
     return `rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})`;
 }
 
-function Subdirectory({ item }) {
+function Subdirectory({item, navigation}) {
     return(
-        <View style={styles.subdirectory}>
+        <TouchableOpacity style={styles.subdirectory} onPress={() => navigation.navigate('Subdirectory')}>
+        {/* <TouchableOpacity style={styles.subdirectory}> */}
             <Text style={styles.subdirectoryTitle}>{item.title}</Text>
-        </View>  
+            {/* <Text>{navigation}</Text> */}
+        </TouchableOpacity>  
     );
 }
 
-function Item({ item }) {
+function Item({item, navigation}) {
     return (
         <View style={styles.item}>
             <Avatar
@@ -49,7 +51,7 @@ function Item({ item }) {
                 <Text style={[styles.title, {color: item.title.toRGB()}]}>{item.title}</Text>
                 <FlatList
                     data={item.subdirectories}
-                    renderItem={({ item }) => <Subdirectory item={item} />}
+                    renderItem={({ item }) => <Subdirectory item={item} navigation={navigation} />}
                     keyExtractor={item => item.id}
                 />
             </View>
@@ -157,7 +159,8 @@ class DirectoriesView extends Component {
                 {/* <ScrollView style={styles.scrollView}> */}
                 <FlatList
                     data={this.state.directories}
-                    renderItem={({ item }) => <Item item={item} />}
+                    renderItem={({ item }) => <Item item={item} navigation={this.props.navigation}/>}
+                    // renderItem={({ item }) => <Item item={item} navigation='lol'/>}
                     keyExtractor={item => item.id}
                 />
                 {/* </ScrollView> */}

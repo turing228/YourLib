@@ -8,16 +8,24 @@ import {
 } from 'react-navigation';
 import { createMaterialTopTabNavigator } from 'react-navigation-tabs';
 
-import DirectoriesScreen from './DirectoriesScreen';
+import DirectoriesNavigator from './Directories/DirectoriesNavigator';
 import AllNotesScreen from './AllNotesScreen';
 
 const Tabs = createMaterialTopTabNavigator(
     {
         directories: {
-            screen: DirectoriesScreen,
-            navigationOptions: {
-                title: "Directories",
-            }
+            screen: DirectoriesNavigator,
+            navigationOptions: ({navigation}) => {
+                let tabBarVisible = true;
+                if (navigation.state.index > 0) {
+                    tabBarVisible = false;
+                }
+                return {
+                    title: "Directories",
+                    tabBarVisible,
+                    // tabBarOnPress: ((obj) => obj.navigation.navigate('chat')),
+                };
+            },
         },
         allNotes: {
             screen: AllNotesScreen,

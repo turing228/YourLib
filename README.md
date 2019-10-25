@@ -64,7 +64,7 @@ When the installation is complete, run with a version of your choice :
 | | Make the main screen: directories, their circle avatars, and subdirectories list | ✔️ 25.10.2019 |
 | | Make the main screen: clickable subdirectories | ✔️ 25.10.2019 |
 | | Make the main screen: add new directory button and the special screen | ✔️ 25.10.2019 |
-| | Make the main screen: add new subdirectory button | |
+| | Make the main screen: add new subdirectory button and the special screen | ✔️ 25.10.2019 |
 | | Make the inside a subdirectory screen: hide topTabBar | ✔️ 25.10.2019 |
 | | Make the inside a subdirectory screen: pass subdirectory content to this screen | |
 | | Make the inside a subdirectory screen: gifted chat UI | |

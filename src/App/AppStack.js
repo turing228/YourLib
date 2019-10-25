@@ -51,7 +51,7 @@ const AppNavigator = createStackNavigator(
 
 const styles = StyleSheet.create({
     headerTitleText: {
-        marginLeft: 20,
+        marginLeft: 16,
         color: "white",
         fontSize: 23,
     },

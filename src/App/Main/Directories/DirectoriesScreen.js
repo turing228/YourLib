@@ -31,14 +31,12 @@ String.prototype.toRGB = function () {
 function Subdirectory({ item, navigation }) {
     return (
         <TouchableOpacity style={styles.subdirectory} onPress={() => navigation.navigate('Subdirectory')}>
-            {/* <TouchableOpacity style={styles.subdirectory}> */}
             <Text style={styles.subdirectoryTitle}>{item.title}</Text>
-            {/* <Text>{navigation}</Text> */}
         </TouchableOpacity>
     );
 }
 
-function Item({ item, navigation }) {
+function Directory({ item, navigation }) {
     return (
         <View style={styles.item}>
             <Avatar
@@ -48,11 +46,16 @@ function Item({ item, navigation }) {
                 title={getInitials(item.title)}
             />
             <View style={styles.subdirectories}>
-                <Text style={[styles.title, { color: item.title.toRGB() }]}>{item.title}</Text>
+                <Text style={[styles.directoryTitle, { color: item.title.toRGB() }]}>{item.title}</Text>
                 <FlatList
                     data={item.subdirectories}
                     renderItem={({ item }) => <Subdirectory item={item} navigation={navigation} />}
                     keyExtractor={item => item.id}
+                    ListFooterComponent={navigation.getParam("editing") &&
+                    <TouchableOpacity style={{flexDirection: 'row'}} onPress={() => navigation.navigate('CreateNewSubirectory')}>
+                        <Text style={styles.createNewSubdirectoryText}>+ create new subdirectory</Text>
+                    </TouchableOpacity>
+                }
                 />
             </View>
         </View>
@@ -60,10 +63,6 @@ function Item({ item, navigation }) {
 }
 
 class DirectoriesView extends Component {
-    //static navigationOptions = ({navigation}: Props) => ({
-    //    
-    //});
-
     constructor(props) {
         super(props);
 
@@ -171,20 +170,12 @@ class DirectoriesView extends Component {
     render() {
         return (
             <SafeAreaView style={styles.safeAreaView}>
-                {/* <ScrollView style={styles.scrollView}> */}
-                {/* <TouchableOpacity onPress={() => this.props.navigation.setParams({ editing: !this.props.navigation.getParam('editing', false) })} style={styles.editButton}>
-                    {this.props.navigation.getParam('editing', false) === true && <Text>true</Text>}
-                    {this.props.navigation.getParam('editing', false) === false && <Text>false</Text>}
-                </TouchableOpacity> */}
                 <FlatList
                     data={this.state.directories}
-                    renderItem={({ item }) => <Item item={item} navigation={this.props.navigation} />}
-                    // renderItem={({ item }) => <Item item={item} navigation='lol'/>}
+                    renderItem={({ item }) => <Directory item={item} navigation={this.props.navigation} />}
                     keyExtractor={item => item.id}
                     ListHeaderComponent={this.ListHeader()}
-                // ListHeaderComponent={this.ListHeader()}
                 />
-                {/* </ScrollView> */}
             </SafeAreaView>
         )
     }
@@ -196,9 +187,9 @@ const styles = StyleSheet.create({
         flex: 1,
         paddingTop: 5,
     },
-    scrollView: {
-        backgroundColor: 'white',
-    },
+    // scrollView: {
+        // backgroundColor: 'white',
+    // },
     item: {
         // backgroundColor: '#f9c2ff',
         // padding: 20,
@@ -206,7 +197,7 @@ const styles = StyleSheet.create({
         marginHorizontal: 16,
         flexDirection: 'row',
     },
-    title: {
+    directoryTitle: {
         fontSize: 23,
         marginBottom: 8,
     },
@@ -241,6 +232,11 @@ const styles = StyleSheet.create({
         fontSize: 18,
         alignSelf: "center",
     },
+    createNewSubdirectoryText: {
+        fontSize: 18,
+        marginBottom: 16,
+        color: "steelblue",
+    }
 })
 
 export default DirectoriesView;

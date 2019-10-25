@@ -1,10 +1,31 @@
 import React from "react";
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
 import { createStackNavigator } from 'react-navigation-stack';
 import { createAppContainer } from 'react-navigation';
 
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+
 import MainNavigator from './Main/MainStack';
+
+function EditButton({ navigation }) {
+    let editing = navigation.getParam('editing', false);
+    return (
+        // <TouchableOpacity onPress={() => navigation.setParams({ editing: !navigation.getParam('editing', false) })} style={styles.editButton}>
+        <TouchableOpacity
+            onPress={() =>
+                navigation.setParams({ editing: !editing }) &&
+                navigation.navigate('Directories', {
+                    editing: !editing,
+                    // otherParam: 'anything you want here',
+                })}
+            style={styles.editButton}
+        >
+            {!editing  && <Icon name="settings" type="MaterialCommunityIcons" style={styles.editIcon} />}
+            {editing && <Icon name="check-bold" type="MaterialCommunityIcons" style={styles.checkIcon} />}
+        </TouchableOpacity>
+    );
+}
 
 const AppNavigator = createStackNavigator(
     {
@@ -14,6 +35,9 @@ const AppNavigator = createStackNavigator(
             navigationOptions: ({ navigation }) => ({
                 headerTitle: (
                     <Text style={styles.headerTitleText}>YourLib</Text>
+                ),
+                headerRight: (
+                    <EditButton navigation={navigation} />
                 ),
                 headerStyle: styles.headerStyle,
             }),
@@ -30,6 +54,17 @@ const styles = StyleSheet.create({
         marginLeft: 20,
         color: "white",
         fontSize: 23,
+    },
+    editButton: {
+        marginRight: 15
+    },
+    editIcon: {
+        fontSize: 23,
+        color: "white",
+    },
+    checkIcon: {
+        fontSize: 23,
+        color: "white",
     },
     headerStyle: {
         shadowOpacity: 0,

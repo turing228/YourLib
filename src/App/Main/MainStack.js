@@ -17,7 +17,7 @@ const Tabs = createMaterialTopTabNavigator(
             screen: DirectoriesNavigator,
             navigationOptions: ({navigation}) => {
                 let tabBarVisible = true;
-                if (navigation.state.index > 0) {
+                if (navigation.state.index > 0 || navigation.getParam("editing")) {
                     tabBarVisible = false;
                 }
                 return {

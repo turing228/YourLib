@@ -62,7 +62,8 @@ When the installation is complete, run with a version of your choice :
 | | Create default project | ✔️ 25.10.2019 |
 | | Implement tab navigation for "directories" and "all notes" | ✔️ 25.10.2019 |
 | | Make the main screen: directories, their circle avatars, and subdirectories list | ✔️ 25.10.2019 |
-| | Make the main screen: clickable subdirectories; add new note button | |
+| | Make the main screen: clickable subdirectories | ✔️ 25.10.2019 |
+| | Make the main screen: add new directory button and the special screen | ✔️ 25.10.2019 |
 | | Make the main screen: add new subdirectory button | |
 | | Make the inside a subdirectory screen: hide topTabBar | ✔️ 25.10.2019 |
 | | Make the inside a subdirectory screen: pass subdirectory content to this screen | |
@@ -89,6 +90,7 @@ When the installation is complete, run with a version of your choice :
 | | Image synchronization with the Amazon Database or other image hosting | |
 | | Implement nice fast-preview/view of links | |
 | | Hide top bars during scrolling | |
+| | Ability to reorder FlatLists (of directories and subdirectories) | |
 |--|--|--|
 | in future | **Kickstarter Сampaign** | |
 | | Implement smart Machine Learning based suggestions of categorizing | |

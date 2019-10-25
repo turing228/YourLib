@@ -28,17 +28,17 @@ String.prototype.toRGB = function () {
     return `rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})`;
 }
 
-function Subdirectory({item, navigation}) {
-    return(
+function Subdirectory({ item, navigation }) {
+    return (
         <TouchableOpacity style={styles.subdirectory} onPress={() => navigation.navigate('Subdirectory')}>
-        {/* <TouchableOpacity style={styles.subdirectory}> */}
+            {/* <TouchableOpacity style={styles.subdirectory}> */}
             <Text style={styles.subdirectoryTitle}>{item.title}</Text>
             {/* <Text>{navigation}</Text> */}
-        </TouchableOpacity>  
+        </TouchableOpacity>
     );
 }
 
-function Item({item, navigation}) {
+function Item({ item, navigation }) {
     return (
         <View style={styles.item}>
             <Avatar
@@ -48,7 +48,7 @@ function Item({item, navigation}) {
                 title={getInitials(item.title)}
             />
             <View style={styles.subdirectories}>
-                <Text style={[styles.title, {color: item.title.toRGB()}]}>{item.title}</Text>
+                <Text style={[styles.title, { color: item.title.toRGB() }]}>{item.title}</Text>
                 <FlatList
                     data={item.subdirectories}
                     renderItem={({ item }) => <Subdirectory item={item} navigation={navigation} />}
@@ -69,79 +69,83 @@ class DirectoriesView extends Component {
 
         this.state = {
 
+            editing: props.navigation.getParam('editing', false),
+
+            creationOfNewDirectory: false,
+
             directories: [
                 {
-                    id: 0,
+                    id: '0',
                     title: 'My Home',
                     subdirectories: [
                         {
-                            id: 0,
+                            id: '0',
                             title: 'events',
                         },
                         {
-                            id: 1,
+                            id: '1',
                             title: 'hw',
                         },
                         {
-                            id: 2,
+                            id: '2',
                             title: 'links',
                         },
                     ]
                 },
                 {
-                    id: 1,
+                    id: '1',
                     title: 'Work',
                     subdirectories: [
                         {
-                            id: 0,
+                            id: '0',
                             title: 'events',
                         },
                         {
-                            id: 1,
+                            id: '1',
                             title: 'links',
                         },
                     ]
                 },
                 {
-                    id: 2,
+                    id: '2',
                     title: 'University',
                     subdirectories: [
                         {
-                            id: 0,
+                            id: '0',
                             title: 'events',
                         },
                         {
-                            id: 1,
+                            id: '1',
                             title: 'hw',
                         },
                         {
-                            id: 2,
+                            id: '2',
                             title: 'books',
                         },
                         {
-                            id: 3,
+                            id: '3',
                             title: 'links',
                         },
                     ]
                 },
                 {
-                    id: 3,
+                    id: '3',
                     title: 'University',
                 },
                 {
-                    id: 4,
+                    id: '4',
                     title: 'University',
                 },
                 {
-                    id: 5,
+                    id: '5',
                     title: 'University',
                 },
                 {
-                    id: 6,
+                    id: '6',
                     title: 'University',
                 },
                 {
-                    id: 7,
+                    id: '7',
                     title: 'University',
                 },
             ],
@@ -153,15 +157,32 @@ class DirectoriesView extends Component {
 
     }
 
+    ListHeader() {
+        return (
+            <View>
+                {this.props.navigation.getParam('editing', false) &&
+                    <TouchableOpacity style={styles.addNewDirectoryButton} onPress={() => this.props.navigation.navigate('CreateNewDirectory')}>
+                        <Text style={styles.addNewDirectoryText}>CREATE NEW DIRECTORY</Text>
+                    </TouchableOpacity>}
+            </View>
+        );
+    }
+
     render() {
         return (
             <SafeAreaView style={styles.safeAreaView}>
                 {/* <ScrollView style={styles.scrollView}> */}
+                {/* <TouchableOpacity onPress={() => this.props.navigation.setParams({ editing: !this.props.navigation.getParam('editing', false) })} style={styles.editButton}>
+                    {this.props.navigation.getParam('editing', false) === true && <Text>true</Text>}
+                    {this.props.navigation.getParam('editing', false) === false && <Text>false</Text>}
+                </TouchableOpacity> */}
                 <FlatList
                     data={this.state.directories}
-                    renderItem={({ item }) => <Item item={item} navigation={this.props.navigation}/>}
+                    renderItem={({ item }) => <Item item={item} navigation={this.props.navigation} />}
                     // renderItem={({ item }) => <Item item={item} navigation='lol'/>}
                     keyExtractor={item => item.id}
+                    ListHeaderComponent={this.ListHeader()}
+                // ListHeaderComponent={this.ListHeader()}
                 />
                 {/* </ScrollView> */}
             </SafeAreaView>
@@ -173,6 +194,7 @@ const styles = StyleSheet.create({
     safeAreaView: {
         backgroundColor: 'aliceblue',
         flex: 1,
+        paddingTop: 5,
     },
     scrollView: {
         backgroundColor: 'white',
@@ -186,6 +208,7 @@ const styles = StyleSheet.create({
     },
     title: {
         fontSize: 23,
+        marginBottom: 8,
     },
     subdirectories: {
         marginLeft: 10,
@@ -199,13 +222,25 @@ const styles = StyleSheet.create({
         borderColor: "darkgrey",
     },
     subdirectory: {
-        marginVertical: 10,
+        marginBottom: 16,
         // marginHorizontal: 16,
     },
     subdirectoryTitle: {
         fontSize: 18,
-        marginTop: 10,
-    },    
+        marginTop: 0,
+    },
+    addNewDirectoryButton: {
+        backgroundColor: "steelblue",
+        marginHorizontal: 15,
+        marginVertical: 10,
+        borderRadius: 5,
+    },
+    addNewDirectoryText: {
+        marginVertical: 5,
+        color: "white",
+        fontSize: 18,
+        alignSelf: "center",
+    },
 })
 
 export default DirectoriesView;

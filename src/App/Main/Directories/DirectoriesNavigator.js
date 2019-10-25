@@ -6,6 +6,7 @@ import { createAppContainer } from 'react-navigation';
 
 import DirectoriesScreen from './DirectoriesScreen';
 import SubdirectoryScreen from './SubdirectoryScreen';
+import CreateNewDirectoryScreen from './CreateNewDirectoryScreen';
 
 const DirectoriesNavigator = createStackNavigator(
     {
@@ -22,6 +23,16 @@ const DirectoriesNavigator = createStackNavigator(
         Subdirectory: {
             name: 'Subdirectory',
             screen: SubdirectoryScreen,
+            navigationOptions: ({ navigation }) => ({
+                // headerTitle: (
+                //     <Text style={styles.headerTitleText}>YourLib</Text>
+                // ),
+                // headerStyle: styles.headerStyle,
+            }),
+        },
+        CreateNewDirectory: {
+            name: 'CreateNewDirectory',
+            screen: CreateNewDirectoryScreen,
             navigationOptions: ({ navigation }) => ({
                 // headerTitle: (
                 //     <Text style={styles.headerTitleText}>YourLib</Text>

@@ -89,9 +89,14 @@ class DirectoriesView extends Component {
                             title: 'events',
                             messages: [
                                 {
-                                    id: '0',
+                                    _id: '0',
                                     text: 'Celebrating grandmother\'s birthday at 18:00 on October 29',
-                                    timestamp: '123',
+                                    createdAt: new Date(),
+                                    user: {
+                                        _id: 1,
+                                        name: 'I',
+                                        // avatar: 'https://placeimg.com/140/140/any',
+                                    },
                                 },
                             ],
                         },
@@ -128,19 +133,34 @@ class DirectoriesView extends Component {
                             title: 'events',
                             messages: [
                                 {
-                                    id: '0',
+                                    _id: 0,
                                     text: 'Test work on mathematical analysis 15:20 November 2',
-                                    timestamp: '1256',
+                                    createdAt: new Date(),
+                                    user: {
+                                        _id: 2,
+                                        name: 'Telegram',
+                                        // avatar: 'https://placeimg.com/140/140/any',
+                                    },
                                 },
                                 {
-                                    id: '1',
-                                    text: 'Startup workshop 18:30 on November 10 in office 285',
-                                    timestamp: '12578',
+                                    _id: 1,
+                                    text: 'Startup workshop 18:30 on November 10 in audience 285',
+                                    createdAt: new Date(),
+                                    user: {
+                                        _id: 1,
+                                        name: 'I',
+                                        // avatar: 'https://placeimg.com/140/140/any',
+                                    },
                                 },
                                 {
-                                    id: '2',
+                                    _id: 2,
                                     text: 'Deadline for homework on algorithms and data structures November 15',
-                                    timestamp: '125123',
+                                    createdAt: new Date(),
+                                    user: {
+                                        _id: 1,
+                                        name: 'I',
+                                        // avatar: 'https://placeimg.com/140/140/any',
+                                    },
                                 },
                             ],
                         },

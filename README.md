@@ -67,8 +67,9 @@ When the installation is complete, run with a version of your choice :
 | | Make the main screen: add new subdirectory button and the special screen | ✔️ 25.10.2019 |
 | | Make the inside a subdirectory screen: hide topTabBar | ✔️ 25.10.2019 |
 | | Make the inside a subdirectory screen: subdirectory data transfer from directories screen to specific subdirectory screen | ✔️ 25.10.2019 |
-| | Make the inside a subdirectory screen: gifted chat UI | |
-| | Make the inside a subdirectory screen: goback arrow in the header | |
+| | Make the inside a subdirectory screen: gifted chat UI | ✔️ 25.10.2019 |
+| | Make the inside a subdirectory screen: goback arrow in the header | ✔️ 25.10.2019 |
+| | Make the "all notes" screen | |
 | | Make screenshots and add them to the repository | |
 |--|--|--|
 | 0.2 | **Cloud Sync** | |

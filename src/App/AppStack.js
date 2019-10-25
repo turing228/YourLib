@@ -7,6 +7,9 @@ import { createAppContainer } from 'react-navigation';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import MainNavigator from './Main/MainStack';
+import SubdirectoryScreen from './Main/Directories/SubdirectoryScreen';
+import CreateNewDirectoryScreen from './Main/Directories/CreateNewDirectoryScreen';
+import CreateNewSubdirectoryScreen from './Main/Directories/CreateNewSubdirectoryScreen';
 
 function EditButton({ navigation }) {
     let editing = navigation.getParam('editing', false);
@@ -32,20 +35,32 @@ const AppNavigator = createStackNavigator(
         Main: {
             name: 'Main',
             screen: MainNavigator,
-            navigationOptions: ({ navigation }) => ({
-                headerTitle: (
-                    <Text style={styles.headerTitleText}>YourLib</Text>
-                ),
-                headerRight: (
-                    <EditButton navigation={navigation} />
-                ),
-                headerStyle: styles.headerStyle,
-            }),
+        },
+        Subdirectory: {
+            name: 'Subdirectory',
+            screen: SubdirectoryScreen,
+        },
+        CreateNewDirectory: {
+            name: 'CreateDirectory',
+            screen: CreateNewDirectoryScreen,
+        },
+        CreateNewSubdirectory: {
+            name: 'CreateNewSubdirectory',
+            screen: CreateNewSubdirectoryScreen,
         },
         // Settings: {name: 'Settings', screen: SettingsNavigator},
     },
     {
         headerMode: 'float',
+        defaultNavigationOptions: ({ navigation }) => ({
+            headerTitle: (
+                <Text style={styles.headerTitleText}>YourLib</Text>
+            ),
+            headerRight: (
+                <EditButton navigation={navigation} />
+            ),
+            headerStyle: styles.headerStyle,
+        }),
     }
 );
 
@@ -54,6 +69,15 @@ const styles = StyleSheet.create({
         marginLeft: 16,
         color: "white",
         fontSize: 23,
+    },
+    headerStyle: {
+        shadowOpacity: 0,
+        shadowOffset: {
+            height: 0,
+        },
+        shadowRadius: 0,
+        elevation: 0,
+        backgroundColor: "steelblue",
     },
     editButton: {
         marginRight: 15
@@ -65,15 +89,6 @@ const styles = StyleSheet.create({
     checkIcon: {
         fontSize: 23,
         color: "white",
-    },
-    headerStyle: {
-        shadowOpacity: 0,
-        shadowOffset: {
-            height: 0,
-        },
-        shadowRadius: 0,
-        elevation: 0,
-        backgroundColor: "steelblue",
     },
 })
 

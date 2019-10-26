@@ -92,6 +92,9 @@ When the installation is complete, run with a version of your choice :
 | | Make screenshots and add them to the repository | ✔️25.10.2019 |
 |--|--|--|
 | 0.2 | **Cloud Sync** | |
+| | UI: Bullet points in subdirectories list | ✔️26.10.2019 |
+| | UI: Ability to delete directories or subdirectories | ✔️26.10.2019 |
+| | UI: Alert before permanently deleting | ✔️26.10.2019 |
 | | Connect Firebase auth with the project | |
 | | Make registration by mobile number screens | |
 | | Connect Firebase realtime database with the project | |

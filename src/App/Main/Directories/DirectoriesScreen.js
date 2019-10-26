@@ -1,7 +1,51 @@
 import React, { Component } from 'react';
-import { SafeAreaView, StyleSheet, Text, FlatList, View, TouchableOpacity } from 'react-native';
+import { SafeAreaView, StyleSheet, Text, FlatList, View, TouchableOpacity, Alert } from 'react-native';
 
 import { Avatar } from 'react-native-elements';
+import Icon from 'react-native-vector-icons/MaterialIcons';
+
+function deleteDirectory(directory) {
+    return (
+        Alert.alert(
+            'Delete "' + directory.title + '"?',
+            'Are you sure you want to delete this directory?\n\nThis operation cannot be undone, it is irreversible',
+            [
+                // { text: 'Ask me later', onPress: () => console.log('Ask me later pressed') },
+                {
+                    text: 'Cancel',
+                    onPress: () => console.log('Cancel Pressed'),
+                    style: 'cancel',
+                },
+                {
+                    text: 'OK',
+                    onPress: () => console.log('OK Pressed')
+                },
+            ],
+            { cancelable: false },
+        )
+    );
+}
+function deleteSubdirectory(subdirectory) {
+    return (
+        Alert.alert(
+            'Delete "' + subdirectory.title + '"?',
+            'Are you sure you want to delete this subdirectory?\n\nThis operation cannot be undone, it is irreversible',
+            [
+                // { text: 'Ask me later', onPress: () => console.log('Ask me later pressed') },
+                {
+                    text: 'Cancel',
+                    onPress: () => console.log('Cancel Pressed'),
+                    style: 'cancel',
+                },
+                {
+                    text: 'OK',
+                    onPress: () => console.log('OK Pressed')
+                },
+            ],
+            { cancelable: false },
+        )
+    );
+}
 
 function getInitials(string) {
     var names = string.split(' '),
@@ -30,9 +74,16 @@ String.prototype.toRGB = function () {
 
 function Subdirectory({ item, navigation }) {
     return (
-        <TouchableOpacity style={styles.subdirectory} onPress={() => navigation.navigate('Subdirectory', { subdirectory: item })}>
-            <Text style={styles.subdirectoryTitle}>{item.title}</Text>
-        </TouchableOpacity>
+        <View>
+            {!navigation.getParam("editing") &&
+                <TouchableOpacity style={styles.subdirectory} onPress={() => navigation.navigate('Subdirectory', { subdirectory: item })}>
+                    <Text style={styles.subdirectoryTitle}>• {item.title}</Text>
+                </TouchableOpacity>}
+            {navigation.getParam("editing") &&
+                <TouchableOpacity style={styles.subdirectory} onPress={() => deleteSubdirectory(item)}>
+                    <Text style={styles.subdirectoryTitle}><Icon name="clear" type="MaterialIcons" style={styles.clearIcon} /> {item.title}</Text>
+                </TouchableOpacity>}
+        </View>
     );
 }
 
@@ -41,7 +92,7 @@ function CreateNewSubirectory({ navigation }) {
         <View>
             {navigation.getParam("editing") &&
                 <TouchableOpacity style={{ flexDirection: 'row' }} onPress={() => navigation.navigate('CreateNewSubdirectory')}>
-                    <Text style={styles.createNewSubdirectoryText}>+ create new subdirectory</Text>
+                    <Text style={styles.createNewSubdirectoryText}><Icon name="add" type="MaterialIcons" style={styles.addIcon} /> create new subdirectory</Text>
                 </TouchableOpacity>}
         </View>
     );
@@ -50,12 +101,19 @@ function CreateNewSubirectory({ navigation }) {
 function Directory({ item, navigation }) {
     return (
         <View style={styles.item}>
-            <Avatar
-                size="medium"
-                overlayContainerStyle={{ backgroundColor: item.title.toRGB() }}
-                rounded
-                title={getInitials(item.title)}
-            />
+            <View>
+                <Avatar
+                    size="medium"
+                    overlayContainerStyle={{ backgroundColor: item.title.toRGB() }}
+                    rounded
+                    title={getInitials(item.title)}
+                />
+                {navigation.getParam("editing") &&
+                    <TouchableOpacity style={styles.clearDirectory} onPress={() => deleteDirectory(item)}>
+                        <View style={styles.circle} />
+                        <Text style={styles.subdirectoryTitle}><Icon name="clear" type="MaterialIcons" style={styles.clearDirectoryIcon} /></Text>
+                    </TouchableOpacity>}
+            </View>
             <View style={styles.subdirectories}>
                 <Text style={[styles.directoryTitle, { color: item.title.toRGB() }]}>{item.title}</Text>
                 <FlatList
@@ -280,6 +338,34 @@ const styles = StyleSheet.create({
         fontSize: 18,
         marginBottom: 16,
         color: "steelblue",
+    },
+    addIcon: {
+        fontSize: 18,
+        color: "green",
+    },
+    clearIcon: {
+        fontSize: 18,
+        color: "red",
+    },
+    clearDirectory: {
+        position: "absolute",
+        top: 35,
+        right: -5,
+    },
+    clearDirectoryIcon: {
+        fontSize: 23,
+        color: "white",
+    },
+    circle: {
+        width: 26,
+        height: 26,
+        borderRadius: 26 / 2,
+        backgroundColor: "red",
+        position: 'absolute',
+        borderWidth: 2,
+        borderColor: "aliceblue",
+        top: -3 / 2,
+        left: -3 / 2,
     }
 })
 

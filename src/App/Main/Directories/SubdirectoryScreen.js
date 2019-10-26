@@ -3,12 +3,14 @@ import { SafeAreaView, ScrollView, StyleSheet, Text } from 'react-native';
 
 import { GiftedChat } from 'react-native-gifted-chat'
 import { Bubble } from 'react-native-gifted-chat'
+import GoBackButton from '../../../Components/GoBackButton';
 
 class SubdirectoryView extends Component {
     static navigationOptions = ({ navigation }: Props) => ({
         headerTitle: (
             <Text style={styles.headerTitleText}>{navigation.getParam("subdirectory").title}</Text>
         ),
+        headerLeft: (<GoBackButton navigation={navigation}/>),
         headerRight: null,
         headerTintColor: "white",
         headerStyle: styles.headerStyle,

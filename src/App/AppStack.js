@@ -4,12 +4,14 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { createStackNavigator } from 'react-navigation-stack';
 import { createAppContainer } from 'react-navigation';
 
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import Icon from 'react-native-vector-icons/MaterialIcons';
+import IconCommunity from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import MainNavigator from './Main/MainStack';
 import SubdirectoryScreen from './Main/Directories/SubdirectoryScreen';
 import CreateNewDirectoryScreen from './Main/Directories/CreateNewDirectoryScreen';
 import CreateNewSubdirectoryScreen from './Main/Directories/CreateNewSubdirectoryScreen';
+import AuthScreen from './Main/Settings/AuthScreen';
 
 function EditButton({ navigation }) {
     let editing = navigation.getParam('editing', false);
@@ -24,8 +26,21 @@ function EditButton({ navigation }) {
                 })}
             style={styles.editButton}
         >
-            {!editing  && <Icon name="settings" type="MaterialCommunityIcons" style={styles.editIcon} />}
-            {editing && <Icon name="check-bold" type="MaterialCommunityIcons" style={styles.checkIcon} />}
+            {!editing && <Icon name="settings" type="MaterialIcons" style={styles.editIcon} />}
+            {editing && <IconCommunity name="check-bold" type="MaterialCommunityIcons" style={styles.checkIcon} />}
+        </TouchableOpacity>
+    );
+}
+
+function ShowDrawerNavigator({ navigation }) {
+    let drawer = navigation.getParam('showDrawer', false);
+    return (
+        // <TouchableOpacity onPress={() => navigation.setParams({ editing: !navigation.getParam('editing', false) })} style={styles.editButton}>
+        <TouchableOpacity
+            onPress={() => navigation.setParams({ showDrawer: !drawer }) && navigation.openDrawer()}
+            style={styles.showDrawer}
+        >
+            <Icon name="dehaze" type="MaterialIcons" style={styles.showDrawerIcon} />
         </TouchableOpacity>
     );
 }
@@ -48,13 +63,23 @@ const AppNavigator = createStackNavigator(
             name: 'CreateNewSubdirectory',
             screen: CreateNewSubdirectoryScreen,
         },
+        Auth: {
+            name: 'Auth',
+            screen: AuthScreen,
+        },
         // Settings: {name: 'Settings', screen: SettingsNavigator},
     },
     {
         headerMode: 'float',
         defaultNavigationOptions: ({ navigation }) => ({
+            headerLeft: (
+                <ShowDrawerNavigator navigation={navigation} />
+            ),
             headerTitle: (
-                <Text style={styles.headerTitleText}>YourLib</Text>
+                // <View style={{flexDirection: 'row'}}>
+                    // <ShowDrawerNavigator navigation={navigation}/>
+                    <Text style={styles.headerTitleText}>YourLib</Text>
+                // </View>
             ),
             headerRight: (
                 <EditButton navigation={navigation} />
@@ -89,6 +114,15 @@ const styles = StyleSheet.create({
     checkIcon: {
         fontSize: 23,
         color: "white",
+    },
+    showDrawer: {
+        marginLeft: 15,
+        marginRight: 15,
+    },
+    showDrawerIcon: {
+        fontSize: 23,
+        color: "white",
+        // top: 5,
     },
 })
 

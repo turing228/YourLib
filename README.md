@@ -45,9 +45,9 @@ Clone this repository :
 
 Install packages :
 
-    npm install
+    yarn install
 
-Configure Firebase to be used with React Native application according to [official instruction](https://rnfirebase.io/docs/v5.x.x/installation/initial-setup)
+Set up Firebase to be used with React Native application according to [official instruction](https://invertase.io/oss/react-native-firebase/quick-start/existing-project)
 
 Create Firebase Realtime Database with rules from file [database_rules.txt](/database_rules.txt)
 
@@ -95,11 +95,16 @@ When the installation is complete, run with a version of your choice :
 | | UI: Bullet points in subdirectories list | ✔️26.10.2019 |
 | | UI: Ability to delete directories or subdirectories | ✔️26.10.2019 |
 | | UI: Alert before permanently deleting | ✔️26.10.2019 |
-| | Connect Firebase auth with the project | |
-| | Make registration by mobile number screens | |
+| | UI: Side bar navigation (between home and settings) | ✔️26.10.2019 |
+| | Spaghetti Code | ✔️26.10.2019 |
+| | Fix spaghetti code (restructure project architecture) | |
+| | Connect Firebase auth with the project | ✔️26.10.2019 |
+| | UI: Make registration by mobile number screens | ✔️26.10.2019 |
+| | UI: Make simple settings screen to check whether you signed in or not with sign in and sign out functionality | ✔️26.10.2019 |
 | | Connect Firebase realtime database with the project | |
 | | Write rules for the realtime database to store "notes" | |
 | | Store/download/sync data with the realtime database | |
+| | Make new screenshots and add them to the repository | |
 |--|--|--|
 | 0.3 | **Offline Work** | |
 | | Add redux-persist to avoid full refresh of data every app start | |
@@ -113,14 +118,23 @@ When the installation is complete, run with a version of your choice :
 | | "Add image" | |
 | | Image synchronization with the Amazon Database or other image hosting | |
 | | Implement nice fast-preview/view of links | |
+| | Choosing icons/colors for directories | |
+| | Nice animation from "edit" icon to "check" icon | |
 | | Hide top bars during scrolling | |
+| | Nice tab navigation between subdirectories inside a directory | |
 | | Ability to reorder FlatLists (of directories and subdirectories) | |
+| | Connect react-native-firebase and libs for iOS version of app | |
+| | Ability to download all notes as a .json file | |
+| | Ability to download all notes as a .excel file | |
+| | Implement the report/feedback system | |
 |--|--|--|
 | in future | **Kickstarter Сampaign** | |
 | | Implement smart Machine Learning based suggestions of categorizing | |
-| | Implement smart advertisement based on notes | |
+| | Implement smart advertisement based on notes (like subscriptions to news websites) | |
 | | Website | |
 | | Desktop application | |
+
+The main purpose of the Kickstarter campaign is **to confirm the demand for a solution** and scale significantly **following the wishes of you, users**!
 
 ## 🏆 Motivation
 

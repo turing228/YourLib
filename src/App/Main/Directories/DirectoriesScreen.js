@@ -128,10 +128,22 @@ function Directory({ item, navigation }) {
 }
 
 class DirectoriesView extends Component {
+    static navigationOptions = {
+        // drawerLabel: 'Home',
+        // drawerIcon: ({ tintColor }) => (
+        //   <Image
+        //     source={<Text>lol</Text>}
+        //     // style={[styles.icon, { tintColor: tintColor }]}
+        //   />
+        // ),
+      };
+
     constructor(props) {
         super(props);
 
         this.state = {
+
+            user: null,
 
             editing: props.navigation.getParam('editing', false),
 
@@ -271,7 +283,11 @@ class DirectoriesView extends Component {
                 {this.props.navigation.getParam('editing', false) &&
                     <TouchableOpacity style={styles.addNewDirectoryButton} onPress={() => this.props.navigation.navigate('CreateNewDirectory')}>
                         <Text style={styles.addNewDirectoryText}>CREATE NEW DIRECTORY</Text>
-                    </TouchableOpacity>}
+                    </TouchableOpacity> &&
+                    <TouchableOpacity style={styles.addNewDirectoryButton} onPress={() => this.props.navigation.navigate('CreateNewDirectory')}>
+                        <Text style={styles.addNewDirectoryText}>CREATE NEW DIRECTORY</Text>
+                    </TouchableOpacity>
+                }
             </View>
         );
     }

@@ -1,0 +1,41 @@
+{
+  "rules": {
+  	"notes": {
+      "$user_id": {
+        ".read": "$user_id === auth.uid",
+        ".write": "$user_id === auth.uid",
+
+        "$directories": {
+          ".validate": "newData.hasChildren(['title'])",
+            
+          "title": {
+            ".validate": "newData.isString() && newData.val().length > 0 && newData.val().length < 127",
+          },
+
+          "$subdirectories": {
+            ".validate": "newData.hasChildren(['title'])",
+              
+            "title": {
+              ".validate": "newData.isString() && newData.val().length > 0 && newData.val().length < 127",
+            },
+
+            "$messages": {
+              ".validate": "newData.hasChildren(['text', 'timestamp'])",
+                
+              "text": {
+                ".validate": "newData.isString() && newData.val().length > 0 && newData.val().length < 4097"
+              },
+              "timestamp": { 
+                ".validate": "newData.val() <= now" 
+              },
+                
+              "$other": { 
+                ".validate": false 
+              },
+            },
+          },
+        },  
+      },
+    },
+  },
+}

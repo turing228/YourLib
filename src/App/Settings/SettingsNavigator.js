@@ -6,7 +6,7 @@ import { createAppContainer } from 'react-navigation';
 
 import AuthScreen from './AuthScreen';
 import SettingsScreen from './SettingsScreen';
-import GoBackButton from "../../../Components/GoBackButton";
+import GoBackButton from "../../Components/GoBackButton";
 
 const SettingsNavigator = createStackNavigator(
     {

@@ -7,12 +7,11 @@ import { createAppContainer } from 'react-navigation';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import IconCommunity from 'react-native-vector-icons/MaterialCommunityIcons';
 
-import MainNavigator from './Main/MainStack';
-import SubdirectoryScreen from './Main/Directories/SubdirectoryScreen';
-import CreateNewDirectoryScreen from './Main/Directories/CreateNewDirectoryScreen';
-import CreateNewSubdirectoryScreen from './Main/Directories/CreateNewSubdirectoryScreen';
-import AuthScreen from './Main/Settings/AuthScreen';
-import { fontSizes } from "../Styles/fontSizes";
+import MainNavigator from './Tab/TabNavigator';
+import SubdirectoryScreen from './NoTab/SubdirectoryScreen';
+import CreateNewDirectoryScreen from './NoTab/CreateNewDirectoryScreen';
+import CreateNewSubdirectoryScreen from './NoTab/CreateNewSubdirectoryScreen';
+import { fontSizes } from "../../Styles/fontSizes";
 
 function EditButton({ navigation }) {
     let editing = navigation.getParam('editing', false);
@@ -99,11 +98,6 @@ const AppNavigator = createStackNavigator(
             name: 'CreateNewSubdirectory',
             screen: CreateNewSubdirectoryScreen,
         },
-        Auth: {
-            name: 'Auth',
-            screen: AuthScreen,
-        },
-        // Settings: {name: 'Settings', screen: SettingsNavigator},
     },
     {
         headerMode: 'float',
@@ -154,6 +148,7 @@ const styles = StyleSheet.create({
     },
     showDrawer: {
         padding: 15,
+        borderRadius: 15,
     },
     showDrawerIcon: {
         fontSize: fontSizes.h1Text,

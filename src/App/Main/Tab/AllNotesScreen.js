@@ -4,7 +4,7 @@ import { SafeAreaView, ScrollView, StyleSheet, TextInput } from 'react-native';
 import { GiftedChat } from 'react-native-gifted-chat'
 import { Bubble } from 'react-native-gifted-chat'
 import { InputToolbar } from 'react-native-gifted-chat'
-import { fontSizes } from '../../Styles/fontSizes';
+import { fontSizes } from '../../../Styles/fontSizes';
 
 let messages = [
     {

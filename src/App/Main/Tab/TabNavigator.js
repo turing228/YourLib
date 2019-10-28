@@ -8,9 +8,9 @@ import {
 } from 'react-navigation';
 import { createMaterialTopTabNavigator } from 'react-navigation-tabs';
 
-import DirectoriesScreen from './Directories/DirectoriesScreen';
+import DirectoriesScreen from './DirectoriesScreen';
 import AllNotesScreen from './AllNotesScreen';
-import { fontSizes } from "../../Styles/fontSizes";
+import { fontSizes } from "../../../Styles/fontSizes";
 
 const Tabs = createMaterialTopTabNavigator(
     {

@@ -97,7 +97,7 @@ When the installation is complete, run with a version of your choice :
 | | UI: Alert before permanently deleting | ✔️26.10.2019 |
 | | UI: Side bar navigation (between home and settings) | ✔️26.10.2019 |
 | | Spaghetti Code | ✔️26.10.2019 |
-| | Fix spaghetti code (restructure project architecture) | |
+| | Fixed spaghetti code (restructure project architecture) | ✔️28.10.2019 |
 | | Connect Firebase auth with the project | ✔️26.10.2019 |
 | | UI: Make registration by mobile number screens | ✔️26.10.2019 |
 | | UI: Make simple settings screen to check whether you signed in or not with sign in and sign out functionality | ✔️26.10.2019 |

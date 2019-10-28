@@ -3,7 +3,7 @@ import { View, Button, Text, TextInput, Image, StyleSheet, TouchableOpacity, Saf
 
 import { firebase } from '@react-native-firebase/app';
 import '@react-native-firebase/auth';
-import { fontSizes } from '../../../Styles/fontSizes';
+import { fontSizes } from '../../Styles/fontSizes';
 
 const successImageUri = 'https://cdn.pixabay.com/photo/2015/06/09/16/12/icon-803718_1280.png';
 

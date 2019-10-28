@@ -3,7 +3,7 @@ import { SafeAreaView, ScrollView, StyleSheet, TextInput, Text, TouchableOpacity
 
 import { firebase } from '@react-native-firebase/app';
 import '@react-native-firebase/auth';
-import { fontSizes } from '../../../Styles/fontSizes';
+import { fontSizes } from '../../Styles/fontSizes';
 
 class SettingsView extends Component {
     static navigationOptions = ({ navigation }: Props) => ({

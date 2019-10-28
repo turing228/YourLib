@@ -4,6 +4,7 @@ import { SafeAreaView, ScrollView, StyleSheet, TextInput } from 'react-native';
 import { GiftedChat } from 'react-native-gifted-chat'
 import { Bubble } from 'react-native-gifted-chat'
 import { InputToolbar } from 'react-native-gifted-chat'
+import { fontSizes } from '../../Styles/fontSizes';
 
 let messages = [
     {
@@ -131,7 +132,7 @@ const styles = StyleSheet.create({
     headerTitleText: {
         marginLeft: 16,
         color: "white",
-        fontSize: 23,
+        fontSize: fontSizes.h1Text,
     },
     headerStyle: {
         shadowOpacity: 0,

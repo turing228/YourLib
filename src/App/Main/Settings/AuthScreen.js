@@ -3,6 +3,7 @@ import { View, Button, Text, TextInput, Image, StyleSheet, TouchableOpacity, Saf
 
 import { firebase } from '@react-native-firebase/app';
 import '@react-native-firebase/auth';
+import { fontSizes } from '../../../Styles/fontSizes';
 
 const successImageUri = 'https://cdn.pixabay.com/photo/2015/06/09/16/12/icon-803718_1280.png';
 
@@ -172,7 +173,7 @@ const styles = StyleSheet.create({
     headerTitleText: {
         marginLeft: 16,
         color: "white",
-        fontSize: 23,
+        fontSize: fontSizes.h1Text,
     },
     headerStyle: {
         shadowOpacity: 0,
@@ -187,11 +188,11 @@ const styles = StyleSheet.create({
         margin: 15,
     },
     text: {
-        fontSize: 18,
+        fontSize: fontSizes.bodyText,
     },
     textInput: {
         borderBottomWidth: 1,
-        fontSize: 23,
+        fontSize: fontSizes.inputText,
     },
     signInButton: {
         backgroundColor: "steelblue",
@@ -202,7 +203,7 @@ const styles = StyleSheet.create({
     signInText: {
         marginVertical: 5,
         color: "white",
-        fontSize: 18,
+        fontSize: fontSizes.bodyText,
         alignSelf: "center",
     },
 })

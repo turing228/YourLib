@@ -3,11 +3,16 @@ import { SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { TextInput } from 'react-native-gesture-handler';
 
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import { fontSizes } from '../../../Styles/fontSizes';
+import GoBackButton from '../../../Components/GoBackButton';
 
 class CreateNewSubdirectoryView extends Component {
     static navigationOptions = ({navigation}: Props) => ({
         headerTitle: (
             <Text style={styles.headerTitleText}>New Subdirectory</Text>
+        ),
+        headerLeft: (
+            <GoBackButton navigation={navigation} />
         ),
         headerRight: <Icon name="check-bold" type="MaterialCommunityIcons" style={styles.checkIcon} />,
         headerTintColor: "white",
@@ -38,7 +43,7 @@ const styles = StyleSheet.create({
     headerTitleText: {
         marginLeft: 16,
         color: "white",
-        fontSize: 23,
+        fontSize: fontSizes.h1Text,
     },
     headerStyle: {
         shadowOpacity: 0,
@@ -51,7 +56,7 @@ const styles = StyleSheet.create({
     },
     checkIcon: {
         marginRight: 15,
-        fontSize: 23,
+        fontSize: fontSizes.h1Text,
         color: "white",
     },
     safeAreaView: {
@@ -65,11 +70,11 @@ const styles = StyleSheet.create({
         margin: 15,
     },
     text: {
-        fontSize: 18,
+        fontSize: fontSizes.bodyText,
     },
     textInput: {
         borderBottomWidth: 1,
-        fontSize: 23,
+        fontSize: fontSizes.inputText,
     },
 })
 

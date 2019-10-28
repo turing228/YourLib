@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TouchableNativeFeedback, TouchableOpacity } from 'react-native';
 
 import { createStackNavigator } from 'react-navigation-stack';
 import { createAppContainer } from 'react-navigation';
@@ -12,37 +12,73 @@ import SubdirectoryScreen from './Main/Directories/SubdirectoryScreen';
 import CreateNewDirectoryScreen from './Main/Directories/CreateNewDirectoryScreen';
 import CreateNewSubdirectoryScreen from './Main/Directories/CreateNewSubdirectoryScreen';
 import AuthScreen from './Main/Settings/AuthScreen';
+import { fontSizes } from "../Styles/fontSizes";
 
 function EditButton({ navigation }) {
     let editing = navigation.getParam('editing', false);
-    return (
-        // <TouchableOpacity onPress={() => navigation.setParams({ editing: !navigation.getParam('editing', false) })} style={styles.editButton}>
-        <TouchableOpacity
-            onPress={() =>
-                navigation.setParams({ editing: !editing }) &&
-                navigation.navigate('Directories', {
-                    editing: !editing,
-                    // otherParam: 'anything you want here',
-                })}
-            style={styles.editButton}
-        >
-            {!editing && <Icon name="settings" type="MaterialIcons" style={styles.editIcon} />}
-            {editing && <IconCommunity name="check-bold" type="MaterialCommunityIcons" style={styles.checkIcon} />}
-        </TouchableOpacity>
-    );
+    if (Platform.OS === 'android') {
+        return (
+            <TouchableNativeFeedback
+                onPress={() =>
+                    navigation.setParams({ editing: !editing }) &&
+                    navigation.navigate('Directories', {
+                        editing: !editing,
+                    })}
+                background={TouchableNativeFeedback.Ripple('white', true)}
+                hitSlop={{ top: 15, right: 15, left: 15, bottom: 15 }}
+            >
+                <View style={styles.editButton}>
+                    {!editing && <Icon name="settings" type="MaterialIcons" style={styles.editIcon} />}
+                    {editing && <IconCommunity name="check-bold" type="MaterialCommunityIcons" style={styles.checkIcon} />}
+                </View>
+            </TouchableNativeFeedback>
+        );
+    } else {
+        return (
+            <TouchableOpacity
+                onPress={() =>
+                    navigation.setParams({ editing: !editing }) &&
+                    navigation.navigate('Directories', {
+                        editing: !editing,
+                    })}
+                hitSlop={{ top: 15, right: 15, left: 15, bottom: 15 }}
+            >
+                <View style={styles.editButton}>
+                    {!editing && <Icon name="settings" type="MaterialIcons" style={styles.editIcon} />}
+                    {editing && <IconCommunity name="check-bold" type="MaterialCommunityIcons" style={styles.checkIcon} />}
+                </View>
+            </TouchableOpacity>
+        )
+    }
 }
 
 function ShowDrawerNavigator({ navigation }) {
     let drawer = navigation.getParam('showDrawer', false);
-    return (
-        // <TouchableOpacity onPress={() => navigation.setParams({ editing: !navigation.getParam('editing', false) })} style={styles.editButton}>
-        <TouchableOpacity
-            onPress={() => navigation.setParams({ showDrawer: !drawer }) && navigation.openDrawer()}
-            style={styles.showDrawer}
-        >
-            <Icon name="dehaze" type="MaterialIcons" style={styles.showDrawerIcon} />
-        </TouchableOpacity>
-    );
+
+    if (Platform.OS === 'android') {
+        return (
+            <TouchableNativeFeedback
+                onPress={() => navigation.setParams({ showDrawer: !drawer }) && navigation.openDrawer()}
+                background={TouchableNativeFeedback.Ripple('white', true)}
+                hitSlop={{ top: 15, right: 15, left: 15, bottom: 15 }}
+            >
+                <View style={styles.showDrawer}>
+                    <Icon name="dehaze" type="MaterialIcons" style={styles.showDrawerIcon} />
+                </View>
+            </TouchableNativeFeedback>
+        );
+    } else {
+        return (
+            <TouchableOpacity
+                onPress={() => navigation.setParams({ showDrawer: !drawer }) && navigation.openDrawer()}
+                hitSlop={{ top: 15, right: 15, left: 15, bottom: 15 }}
+            >
+                <View style={styles.showDrawer}>
+                    <Icon name="dehaze" type="MaterialIcons" style={styles.showDrawerIcon} />
+                </View>
+            </TouchableOpacity>
+        )
+    }
 }
 
 const AppNavigator = createStackNavigator(
@@ -77,8 +113,8 @@ const AppNavigator = createStackNavigator(
             ),
             headerTitle: (
                 // <View style={{flexDirection: 'row'}}>
-                    // <ShowDrawerNavigator navigation={navigation}/>
-                    <Text style={styles.headerTitleText}>YourLib</Text>
+                // <ShowDrawerNavigator navigation={navigation}/>
+                <Text style={styles.headerTitleText}>YourLib</Text>
                 // </View>
             ),
             headerRight: (
@@ -93,7 +129,7 @@ const styles = StyleSheet.create({
     headerTitleText: {
         marginLeft: 16,
         color: "white",
-        fontSize: 23,
+        fontSize: fontSizes.h1Text,
     },
     headerStyle: {
         shadowOpacity: 0,
@@ -105,22 +141,22 @@ const styles = StyleSheet.create({
         backgroundColor: "steelblue",
     },
     editButton: {
-        marginRight: 15
+        padding: 15,
+        borderRadius: 15,
     },
     editIcon: {
-        fontSize: 23,
+        fontSize: fontSizes.h1Text,
         color: "white",
     },
     checkIcon: {
-        fontSize: 23,
+        fontSize: fontSizes.h1Text,
         color: "white",
     },
     showDrawer: {
-        marginLeft: 15,
-        marginRight: 15,
+        padding: 15,
     },
     showDrawerIcon: {
-        fontSize: 23,
+        fontSize: fontSizes.h1Text,
         color: "white",
         // top: 5,
     },

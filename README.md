@@ -101,6 +101,7 @@ When the installation is complete, run with a version of your choice :
 | | Connect Firebase auth with the project | ✔️26.10.2019 |
 | | UI: Make registration by mobile number screens | ✔️26.10.2019 |
 | | UI: Make simple settings screen to check whether you signed in or not with sign in and sign out functionality | ✔️26.10.2019 |
+| | UI: Global font sizes | ✔️28.10.2019 |
 | | Connect Firebase realtime database with the project | |
 | | Write rules for the realtime database to store "notes" | |
 | | Store/download/sync data with the realtime database | |

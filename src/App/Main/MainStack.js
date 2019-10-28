@@ -10,12 +10,13 @@ import { createMaterialTopTabNavigator } from 'react-navigation-tabs';
 
 import DirectoriesScreen from './Directories/DirectoriesScreen';
 import AllNotesScreen from './AllNotesScreen';
+import { fontSizes } from "../../Styles/fontSizes";
 
 const Tabs = createMaterialTopTabNavigator(
     {
         Directories: {
             screen: DirectoriesScreen,
-            navigationOptions: ({navigation}) => {
+            navigationOptions: ({ navigation }) => {
                 let tabBarVisible = true;
                 if (navigation.state.index > 0) {
                     tabBarVisible = false;
@@ -50,6 +51,10 @@ const Tabs = createMaterialTopTabNavigator(
             indicatorStyle: {
                 backgroundColor: "steelblue",
             },
+            labelStyle: {
+                fontSize: fontSizes.bodyText,
+            },
+            upperCaseLabel: false,
         },
     }
 )

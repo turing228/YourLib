@@ -3,6 +3,7 @@ import { SafeAreaView, StyleSheet, Text, FlatList, View, TouchableOpacity, Alert
 
 import { Avatar } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import { fontSizes } from '../../../Styles/fontSizes';
 
 function deleteDirectory(directory) {
     return (
@@ -106,6 +107,7 @@ function Directory({ item, navigation }) {
                     size="medium"
                     overlayContainerStyle={{ backgroundColor: item.title.toRGB() }}
                     rounded
+                    titleStyle={styles.avatarTitleStyle}
                     title={getInitials(item.title)}
                 />
                 {navigation.getParam("editing") &&
@@ -282,10 +284,7 @@ class DirectoriesView extends Component {
             <View>
                 {this.props.navigation.getParam('editing', false) &&
                     <TouchableOpacity style={styles.addNewDirectoryButton} onPress={() => this.props.navigation.navigate('CreateNewDirectory')}>
-                        <Text style={styles.addNewDirectoryText}>CREATE NEW DIRECTORY</Text>
-                    </TouchableOpacity> &&
-                    <TouchableOpacity style={styles.addNewDirectoryButton} onPress={() => this.props.navigation.navigate('CreateNewDirectory')}>
-                        <Text style={styles.addNewDirectoryText}>CREATE NEW DIRECTORY</Text>
+                        <Text style={styles.addNewDirectoryText}>Create New Directory</Text>
                     </TouchableOpacity>
                 }
             </View>
@@ -318,7 +317,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
     },
     directoryTitle: {
-        fontSize: 23,
+        fontSize: fontSizes.h1Text,
         marginBottom: 8,
     },
     subdirectories: {
@@ -335,7 +334,7 @@ const styles = StyleSheet.create({
         marginBottom: 16,
     },
     subdirectoryTitle: {
-        fontSize: 18,
+        fontSize: fontSizes.bodyText,
         marginTop: 0,
     },
     addNewDirectoryButton: {
@@ -347,20 +346,20 @@ const styles = StyleSheet.create({
     addNewDirectoryText: {
         marginVertical: 5,
         color: "white",
-        fontSize: 18,
+        fontSize: 16,
         alignSelf: "center",
     },
     createNewSubdirectoryText: {
-        fontSize: 18,
+        fontSize: fontSizes.bodyText,
         marginBottom: 16,
         color: "steelblue",
     },
     addIcon: {
-        fontSize: 18,
+        fontSize: fontSizes.bodyText,
         color: "green",
     },
     clearIcon: {
-        fontSize: 18,
+        fontSize: fontSizes.bodyText,
         color: "red",
     },
     clearDirectory: {
@@ -369,19 +368,22 @@ const styles = StyleSheet.create({
         right: -5,
     },
     clearDirectoryIcon: {
-        fontSize: 23,
+        fontSize: fontSizes.h1Text,
         color: "white",
     },
     circle: {
-        width: 26,
-        height: 26,
-        borderRadius: 26 / 2,
+        width: fontSizes.h1Text + 3,
+        height: fontSizes.h1Text + 3,
+        borderRadius: (fontSizes.h1Text + 3) / 2,
         backgroundColor: "red",
         position: 'absolute',
         borderWidth: 2,
         borderColor: "aliceblue",
         top: -3 / 2,
         left: -3 / 2,
+    },
+    avatarTitleStyle: {
+        fontSize: fontSizes.h1Text,
     }
 })
 

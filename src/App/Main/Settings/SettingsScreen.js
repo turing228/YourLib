@@ -3,6 +3,7 @@ import { SafeAreaView, ScrollView, StyleSheet, TextInput, Text, TouchableOpacity
 
 import { firebase } from '@react-native-firebase/app';
 import '@react-native-firebase/auth';
+import { fontSizes } from '../../../Styles/fontSizes';
 
 class SettingsView extends Component {
     static navigationOptions = ({ navigation }: Props) => ({
@@ -66,7 +67,7 @@ const styles = StyleSheet.create({
     headerTitleText: {
         marginLeft: 16,
         color: "white",
-        fontSize: 23,
+        fontSize: fontSizes.h1Text,
     },
     headerStyle: {
         shadowOpacity: 0,
@@ -81,7 +82,7 @@ const styles = StyleSheet.create({
         margin: 15,
     },
     text: {
-        fontSize: 18,
+        fontSize: fontSizes.bodyText,
     },
     signInButton: {
         backgroundColor: "steelblue",
@@ -92,7 +93,7 @@ const styles = StyleSheet.create({
     signInText: {
         marginVertical: 5,
         color: "white",
-        fontSize: 18,
+        fontSize: fontSizes.bodyText,
         alignSelf: "center",
     },
     signOutButton: {
@@ -104,7 +105,7 @@ const styles = StyleSheet.create({
     signOutText: {
         marginVertical: 5,
         color: "white",
-        fontSize: 18,
+        fontSize: fontSizes.bodyText,
         alignSelf: "center",
     },
 })

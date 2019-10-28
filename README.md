@@ -102,11 +102,11 @@ When the installation is complete, run with a version of your choice :
 | | UI: Make registration by mobile number screens | ✔️26.10.2019 |
 | | UI: Make simple settings screen to check whether you signed in or not with sign in and sign out functionality | ✔️26.10.2019 |
 | | UI: Global font sizes | ✔️28.10.2019 |
-| | Connect Firebase realtime database with the project | |
+| | Connect Firebase realtime database with the project | ✔️28.10.2019 |
 | | Write rules for the realtime database to store "notes" | ✔️28.10.2019 |
 | | Store/download/sync data with the realtime database | |
-| | Make new screenshots and add them to the repository | |
 | | [Enable Firebase Database offline capabilities for Mobile app](https://invertase.io/oss/react-native-firebase/v6/database/quick-start) | ✔️28.10.2019 |
+| | Make new screenshots and add them to the repository | |
 |--|--|--|
 | unplanned | **Feel free to implement this or suggest something new and make a pull request!** | |
 | | Make the color-theme selectable | |

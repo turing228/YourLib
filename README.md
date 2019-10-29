@@ -110,7 +110,6 @@ When the installation is complete, run with a version of your choice :
 | | All Notes Screen | ✔️29.10.2019 |
 | | [Enable Firebase Database offline capabilities for Mobile app](https://invertase.io/oss/react-native-firebase/v6/database/quick-start) | ✔️28.10.2019 |
 | | Make new screenshots and add them to the repository | |
-| | Make gif and add it to the repository | |
 |--|--|--|
 | unplanned | **Feel free to implement this or suggest something new and make a pull request!** | |
 | | Make the color-theme selectable | |
@@ -126,6 +125,7 @@ When the installation is complete, run with a version of your choice :
 | | Delete account button | |
 | | Current sync status | |
 | | "Create your first directory" screnario | |
+| | Nice events-view (\& ability to add to google calendar) | |
 | | Nice tab navigation between subdirectories inside a directory | |
 | | Ability to reorder FlatLists (of directories and subdirectories) | |
 | | Connect react-native-firebase and libs for iOS version of app | |

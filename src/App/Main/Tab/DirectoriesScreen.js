@@ -43,7 +43,7 @@ unsubscribeData = async () => {
 deleteDirectoryFirebase = async (directoryKey) => {
     let userId = await firebase.auth().currentUser.uid;
 
-    let directoryRef = await firebase.database().ref('notes/' + userId).child(directoryKey);
+    let directoryRef = await firebase.database().ref('notes/' + userId + '/directories/').child(directoryKey);
 
     directoryRef.off();
     await directoryRef.remove();
@@ -74,21 +74,33 @@ function deleteDirectory(directoryTitle, directoryKey) {
     );
 }
 
-function deleteSubdirectory(subdirectory) {
+deleteSubdirectoryFirebase = async (directoryKey, subdirectoryKey) => {
+    let userId = await firebase.auth().currentUser.uid;
+
+    let directoryRef = await firebase.database().ref('notes/' + userId + '/directories/' + directoryKey + '/subdirectories/').child(subdirectoryKey);
+
+    directoryRef.off();
+    await directoryRef.remove();
+}
+
+function deleteSubdirectory(directoryKey, directoryTitle, subdirectoryKey, subdirectoryTitle) {
     return (
         Alert.alert(
-            'Delete "' + subdirectory.title + '"?',
+            'Delete "' + subdirectoryTitle + '"?',
             'Are you sure you want to delete this subdirectory?\n\nThis operation cannot be undone, it is irreversible',
             [
                 // { text: 'Ask me later', onPress: () => console.log('Ask me later pressed') },
                 {
                     text: 'Cancel',
-                    onPress: () => console.log('Cancel Pressed'),
+                    onPress: () => console.log('Cancel Pressed: do not delete subdirectory ' + directoryTitle + '/' + subdirectoryTitle),
                     style: 'cancel',
                 },
                 {
                     text: 'OK',
-                    onPress: () => console.log('OK Pressed')
+                    onPress: () => {
+                        console.log('OK Pressed: delete subdirectory ' + directoryTitle + '/' + subdirectoryTitle);
+                        deleteSubdirectoryFirebase(directoryKey, subdirectoryKey);
+                    }
                 },
             ],
             { cancelable: false },
@@ -131,7 +143,7 @@ function Subdirectory({ directoryKey, directoryTitle, subdirectory, navigation }
                     <Text style={styles.subdirectoryTitle}>• {subdirectoryTitle}</Text>
                 </TouchableOpacity>}
             {navigation.getParam("editing") &&
-                <TouchableOpacity style={styles.subdirectory} onPress={() => deleteSubdirectory(subdirectoryKey)}>
+                <TouchableOpacity style={styles.subdirectory} onPress={() => deleteSubdirectory(directoryKey, directoryTitle, subdirectoryKey, subdirectoryTitle)}>
                     <Text style={styles.subdirectoryTitle}><Icon name="clear" type="MaterialIcons" style={styles.clearIcon} /> {subdirectoryTitle}</Text>
                 </TouchableOpacity>}
         </View>

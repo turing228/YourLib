@@ -12,27 +12,38 @@
             ".validate": "newData.isString() && newData.val().length > 0 && newData.val().length < 127",
           },
 
-          "$subdirectories": {
-            ".validate": "newData.hasChildren(['title'])",
-              
-            "title": {
-              ".validate": "newData.isString() && newData.val().length > 0 && newData.val().length < 127",
-            },
+          "subdirectories": {
+            "$subdirectories": {
+              ".validate": "newData.hasChildren(['title'])",
 
-            "$messages": {
-              ".validate": "newData.hasChildren(['text', 'timestamp'])",
-                
-              "text": {
-                ".validate": "newData.isString() && newData.val().length > 0 && newData.val().length < 4097"
+              "title": {
+                ".validate": "newData.isString() && newData.val().length > 0 && newData.val().length < 127",
               },
-              "timestamp": { 
-                ".validate": "newData.val() <= now" 
-              },
-                
-              "$other": { 
-                ".validate": false 
+
+              "messages": {
+                "$messages": {
+                  ".validate": "newData.hasChildren(['text', 'timestamp'])",
+
+                  "user_id": {
+                    ".validate": "newData.isString() && newData.val().length > 0 && newData.val().length < 4097"
+                  },
+                  "text": {
+                    ".validate": "newData.isString() && newData.val().length > 0 && newData.val().length < 4097"
+                  },
+                  "timestamp": { 
+                    ".validate": "newData.val() <= now" 
+                  },
+
+                  "$other": { 
+                    ".validate": false 
+                  },
+                },
               },
             },
+          },
+          
+        	"$other": { 
+          	".validate": false 
           },
         },  
       },

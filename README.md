@@ -77,7 +77,7 @@ When the installation is complete, run with a version of your choice :
 
 | Version | Feature/Action Description | Date |
 |:--:|--|:--:|
-| 0.1 | **User Interface** | ✔️25.10.2019 |
+| 0.1 | **User Interface Skeleton** | ✔️25.10.2019 |
 | | Create default project | ✔️25.10.2019 |
 | | Implement tab navigation for "directories" and "all notes" | ✔️25.10.2019 |
 | | Make the main screen: directories, their circle avatars, and subdirectories list | ✔️25.10.2019 |
@@ -97,7 +97,7 @@ When the installation is complete, run with a version of your choice :
 | | UI: Alert before permanently deleting | ✔️26.10.2019 |
 | | UI: Side bar navigation (between home and settings) | ✔️26.10.2019 |
 | | Spaghetti Code | ✔️26.10.2019 |
-| | Fixed spaghetti code (restructure project architecture) | ✔️28.10.2019 |
+| | Fix spaghetti code (restructure project architecture) | ✔️28.10.2019 |
 | | Connect Firebase auth with the project | ✔️26.10.2019 |
 | | UI: Make registration by mobile number screens | ✔️26.10.2019 |
 | | UI: Make simple settings screen to check whether you signed in or not with sign in and sign out functionality | ✔️26.10.2019 |
@@ -106,9 +106,10 @@ When the installation is complete, run with a version of your choice :
 | | Write rules for the realtime database to store "notes" | ✔️28.10.2019 |
 | | Store/download/sync data with the realtime database: add and remove directories | ✔️29.10.2019 |
 | | Store/download/sync data with the realtime database: add and remove subdirectories | ✔️29.10.2019 |
-| | Store/download/sync data with the realtime database: add notes | |
+| | Store/download/sync data with the realtime database: add notes | ✔️29.10.2019 |
 | | [Enable Firebase Database offline capabilities for Mobile app](https://invertase.io/oss/react-native-firebase/v6/database/quick-start) | ✔️28.10.2019 |
 | | Make new screenshots and add them to the repository | |
+| | Make gif and add it to the repository | |
 |--|--|--|
 | unplanned | **Feel free to implement this or suggest something new and make a pull request!** | |
 | | Make the color-theme selectable | |
@@ -119,13 +120,15 @@ When the installation is complete, run with a version of your choice :
 | | Choosing icons/colors for directories | |
 | | Nice animation from "edit" icon to "check" icon | |
 | | Hide top bars during scrolling | |
+| | Editing/removing notes | |
+| | Whole directory screen | |
+| | "Create your first directory" screnario | |
 | | Nice tab navigation between subdirectories inside a directory | |
 | | Ability to reorder FlatLists (of directories and subdirectories) | |
 | | Connect react-native-firebase and libs for iOS version of app | |
 | | Ability to download all notes as a .json file | |
 | | Ability to download all notes as a .excel file | |
 | | Implement the report/feedback system | |
-| | Editing notes | |
 |--|--|--|
 | in future | **Kickstarter Сampaign** | |
 | | Implement smart Machine Learning based suggestions of categorizing | |

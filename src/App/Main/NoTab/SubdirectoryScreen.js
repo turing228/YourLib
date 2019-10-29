@@ -5,6 +5,45 @@ import { GiftedChat } from 'react-native-gifted-chat'
 import { Bubble } from 'react-native-gifted-chat'
 import GoBackButton from '../../../Components/GoBackButton';
 
+import firebase from '@react-native-firebase/app';
+import '@react-native-firebase/database';
+import '@react-native-firebase/auth';
+
+addNote = async (directoryKey, subdirectoryKey, text) => {
+    let userId = await firebase.auth().currentUser.uid;
+
+    let subdirectoryRef = await firebase.database().ref('notes/' + userId + '/' + directoryKey + '/subdirectories/' + subdirectoryKey + '/messages/');
+
+    subdirectoryRef.push({
+        text: text,
+        timestamp: firebase.database.ServerValue.TIMESTAMP,
+        user_id: '1',
+    })
+}
+
+getNotes = async (directoryKey, subdirectoryKey, that) => {
+    let userId = await firebase.auth().currentUser.uid;
+
+    let subdirectoryRef = await firebase.database().ref('notes/' + userId + '/' + directoryKey + '/subdirectories/' + subdirectoryKey + '/messages/');
+
+    subdirectoryRef.on('value', (dataSnapshot) => {
+        let notesFB = [];
+        dataSnapshot.forEach((child) => {
+            notesFB = [({
+                _id: child.key,
+                text: child.val().text,
+                createdAt: child.val().timestamp,
+                user: {
+                    _id: child.val().id,
+                    name: 'kek',
+                }
+            }), ...notesFB];
+        });
+        that.setState({notes: notesFB});
+    });
+}
+
+
 class SubdirectoryView extends Component {
     static navigationOptions = ({ navigation }: Props) => ({
         headerTitle: (
@@ -20,22 +59,20 @@ class SubdirectoryView extends Component {
         super(props);
 
         this.state = {
+            directoryKey: props.navigation.getParam("directoryKey"),
             subdirectoryKey: props.navigation.getParam("subdirectoryKey"),
             subdirectoryTitle: props.navigation.getParam("subdirectoryTitle"),
 
-            // messages: props.navigation.getParam("subdirectory").messages,
-            messages: [],
+            notes: [],
         }
     }
 
     componentDidMount() {
-
+        getNotes(this.state.directoryKey, this.state.subdirectoryKey, this);
     }
 
     onSend(messages = []) {
-        this.setState(previousState => ({
-            messages: GiftedChat.append(previousState.messages, messages),
-        }))
+        addNote(this.state.directoryKey, this.state.subdirectoryKey, messages[0].text);
     }
 
     renderBubble(props) {
@@ -62,7 +99,7 @@ class SubdirectoryView extends Component {
         return (
             <SafeAreaView style={styles.safeAreaView}>
                 <GiftedChat
-                    messages={this.state.messages}
+                    messages={this.state.notes}
                     onSend={messages => this.onSend(messages)}
                     user={{
                         _id: 1,

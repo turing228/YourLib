@@ -27,10 +27,10 @@ function ApproveButton({ navigation, onPress }) {
             <TouchableNativeFeedback
                 onPress={() => {
                     onPress();
-                    // navigation.setParams({ editing: !editing });
-                    // navigation.navigate('Directories', {
-                    //     editing: !editing,
-                    // });
+                    navigation.setParams({ editing: !editing });
+                    navigation.navigate('Directories', {
+                        editing: !editing,
+                    });
                 }}
                 background={TouchableNativeFeedback.Ripple('white', true)}
                 hitSlop={{ top: 15, right: 15, left: 15, bottom: 15 }}

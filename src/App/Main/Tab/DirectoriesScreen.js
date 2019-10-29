@@ -114,13 +114,13 @@ String.prototype.toRGB = function () {
     return `rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})`;
 }
 
-function Subdirectory({ subdirectory, navigation }) {
+function Subdirectory({ directoryKey, subdirectory, navigation }) {
     let subdirectoryKey = subdirectory[0];
     let subdirectoryTitle = subdirectory[1].title;
     return (
         <View>
             {!navigation.getParam("editing") &&
-                <TouchableOpacity style={styles.subdirectory} onPress={() => navigation.navigate('Subdirectory', { subdirectoryKey, subdirectoryTitle })}>
+                <TouchableOpacity style={styles.subdirectory} onPress={() => navigation.navigate('Subdirectory', { directoryKey, subdirectoryKey, subdirectoryTitle })}>
                     <Text style={styles.subdirectoryTitle}>• {subdirectoryTitle}</Text>
                 </TouchableOpacity>}
             {navigation.getParam("editing") &&
@@ -170,7 +170,7 @@ function Directory({ directory, navigation }) {
                 <FlatList
                     // data={subdirectories}
                     data={Object.entries(subdirectories)}
-                    renderItem={({ item }) => <Subdirectory subdirectory={item} navigation={navigation} />}
+                    renderItem={({ item }) => <Subdirectory directoryKey={directoryKey} subdirectory={item} navigation={navigation} />}
                     keyExtractor={(item) => item[0]}
                     ListFooterComponent={<CreateNewSubirectory navigation={navigation} directoryKey={directoryKey} directoryTitle={directoryTitle} />}
                 />

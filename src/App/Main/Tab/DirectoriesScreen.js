@@ -5,27 +5,68 @@ import { Avatar } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { fontSizes } from '../../../Styles/fontSizes';
 
-function deleteDirectory(directory) {
+import firebase from '@react-native-firebase/app';
+import '@react-native-firebase/database';
+import '@react-native-firebase/auth';
+
+getData = async (that) => {
+    notes = {};
+
+    let userId = await firebase.auth().currentUser.uid;
+
+    let userDataRef = await firebase.database().ref('notes/' + userId);
+
+    userDataRef.on('child_added', (data) => {
+        that.setState({ test: 'lol2' });
+        notes[data.key] = data.val();
+        that.setState({ notes: notes });
+    })
+
+    userDataRef.on('child_changed', (data) => {
+        notes[data.key] = data.val();
+        that.setState({ notes: notes });
+    })
+
+    userDataRef.on('child_removed', (data) => {
+        delete notes[data.key];
+        that.setState({ notes: notes });
+    })
+}
+
+deleteDirectoryFirebase = async (directoryKey) => {
+    let userId = await firebase.auth().currentUser.uid;
+
+    let directoryRef = await firebase.database().ref('notes/' + userId).child(directoryKey);
+    
+    directoryRef.off();
+    await directoryRef.remove();
+}
+
+function deleteDirectory(directoryTitle, directoryKey) {
     return (
         Alert.alert(
-            'Delete "' + directory.title + '"?',
+            'Delete "' + directoryTitle + '"?',
             'Are you sure you want to delete this directory?\n\nThis operation cannot be undone, it is irreversible',
             [
                 // { text: 'Ask me later', onPress: () => console.log('Ask me later pressed') },
                 {
                     text: 'Cancel',
-                    onPress: () => console.log('Cancel Pressed'),
+                    onPress: () => console.log('Cancel Pressed: do not delete directory ' + directoryTitle),
                     style: 'cancel',
                 },
                 {
                     text: 'OK',
-                    onPress: () => console.log('OK Pressed')
+                    onPress: () => {
+                        console.log('OK Pressed: delete directory ' + directoryTitle);
+                        deleteDirectoryFirebase(directoryKey);
+                    }
                 },
             ],
             { cancelable: false },
         )
     );
 }
+
 function deleteSubdirectory(subdirectory) {
     return (
         Alert.alert(
@@ -73,56 +114,65 @@ String.prototype.toRGB = function () {
     return `rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})`;
 }
 
-function Subdirectory({ item, navigation }) {
+function Subdirectory({ subdirectory, navigation }) {
+    let subdirectoryKey = subdirectory[0];
+    let subdirectoryTitle = subdirectory[1].title;
     return (
         <View>
             {!navigation.getParam("editing") &&
-                <TouchableOpacity style={styles.subdirectory} onPress={() => navigation.navigate('Subdirectory', { subdirectory: item })}>
-                    <Text style={styles.subdirectoryTitle}>• {item.title}</Text>
+                <TouchableOpacity style={styles.subdirectory} onPress={() => navigation.navigate('Subdirectory', { subdirectoryKey, subdirectoryTitle })}>
+                    <Text style={styles.subdirectoryTitle}>• {subdirectoryTitle}</Text>
                 </TouchableOpacity>}
             {navigation.getParam("editing") &&
-                <TouchableOpacity style={styles.subdirectory} onPress={() => deleteSubdirectory(item)}>
-                    <Text style={styles.subdirectoryTitle}><Icon name="clear" type="MaterialIcons" style={styles.clearIcon} /> {item.title}</Text>
+                <TouchableOpacity style={styles.subdirectory} onPress={() => deleteSubdirectory(subdirectoryKey)}>
+                    <Text style={styles.subdirectoryTitle}><Icon name="clear" type="MaterialIcons" style={styles.clearIcon} /> {subdirectoryTitle}</Text>
                 </TouchableOpacity>}
         </View>
     );
 }
 
-function CreateNewSubirectory({ navigation }) {
+function CreateNewSubirectory({ navigation, directoryKey, directoryTitle }) {
     return (
         <View>
             {navigation.getParam("editing") &&
-                <TouchableOpacity style={{ flexDirection: 'row' }} onPress={() => navigation.navigate('CreateNewSubdirectory')}>
+                <TouchableOpacity style={{ flexDirection: 'row' }} onPress={() => navigation.navigate('CreateNewSubdirectory', { directoryKey, directoryTitle })}>
                     <Text style={styles.createNewSubdirectoryText}><Icon name="add" type="MaterialIcons" style={styles.addIcon} /> create new subdirectory</Text>
                 </TouchableOpacity>}
         </View>
     );
 }
 
-function Directory({ item, navigation }) {
+function Directory({ directory, navigation }) {
+    let directoryKey = directory[0];
+    let directoryTitle = directory[1].title;
+    let subdirectories = [];
+    if (directory[1].subdirectories) {
+        subdirectories = directory[1].subdirectories;
+    }
     return (
-        <View style={styles.item}>
+        <View style={styles.directory}>
             <View>
                 <Avatar
                     size="medium"
-                    overlayContainerStyle={{ backgroundColor: item.title.toRGB() }}
+                    overlayContainerStyle={{ backgroundColor: directoryTitle.toRGB() }}
                     rounded
                     titleStyle={styles.avatarTitleStyle}
-                    title={getInitials(item.title)}
+                    title={getInitials(directoryTitle)}
                 />
                 {navigation.getParam("editing") &&
-                    <TouchableOpacity style={styles.clearDirectory} onPress={() => deleteDirectory(item)}>
+                    <TouchableOpacity style={styles.clearDirectory} onPress={() => deleteDirectory(directoryTitle, directoryKey)}>
                         <View style={styles.circle} />
                         <Text style={styles.subdirectoryTitle}><Icon name="clear" type="MaterialIcons" style={styles.clearDirectoryIcon} /></Text>
                     </TouchableOpacity>}
             </View>
             <View style={styles.subdirectories}>
-                <Text style={[styles.directoryTitle, { color: item.title.toRGB() }]}>{item.title}</Text>
+                <Text style={[styles.directoryTitle, { color: directoryTitle.toRGB() }]}>{directoryTitle}</Text>
                 <FlatList
-                    data={item.subdirectories}
-                    renderItem={({ item }) => <Subdirectory item={item} navigation={navigation} />}
-                    keyExtractor={item => item.id}
-                    ListFooterComponent={<CreateNewSubirectory navigation={navigation} />}
+                    // data={subdirectories}
+                    data={Object.entries(subdirectories)}
+                    renderItem={({ item }) => <Subdirectory subdirectory={item} navigation={navigation} />}
+                    keyExtractor={(item) => item[0]}
+                    ListFooterComponent={<CreateNewSubirectory navigation={navigation} directoryKey={directoryKey} directoryTitle={directoryTitle} />}
                 />
             </View>
         </View>
@@ -130,15 +180,6 @@ function Directory({ item, navigation }) {
 }
 
 class DirectoriesView extends Component {
-    static navigationOptions = {
-        // drawerLabel: 'Home',
-        // drawerIcon: ({ tintColor }) => (
-        //   <Image
-        //     source={<Text>lol</Text>}
-        //     // style={[styles.icon, { tintColor: tintColor }]}
-        //   />
-        // ),
-      };
 
     constructor(props) {
         super(props);
@@ -150,6 +191,10 @@ class DirectoriesView extends Component {
             editing: props.navigation.getParam('editing', false),
 
             creationOfNewDirectory: false,
+
+            notes: {},
+
+            test: '',
 
             directories: [
                 {
@@ -276,7 +321,7 @@ class DirectoriesView extends Component {
     }
 
     componentDidMount() {
-
+        getData(this);
     }
 
     ListHeader() {
@@ -295,9 +340,10 @@ class DirectoriesView extends Component {
         return (
             <SafeAreaView style={styles.safeAreaView}>
                 <FlatList
-                    data={this.state.directories}
-                    renderItem={({ item }) => <Directory item={item} navigation={this.props.navigation} />}
-                    keyExtractor={item => item.id}
+                    // data={this.state.directories}
+                    data={Object.entries(this.state.notes)}
+                    renderItem={({ item }) => <Directory directory={item} navigation={this.props.navigation} />}
+                    keyExtractor={(item) => item[0]}
                     ListHeaderComponent={this.ListHeader()}
                     paddingTop={5}
                 />
@@ -311,7 +357,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'aliceblue',
         flex: 1,
     },
-    item: {
+    directory: {
         marginVertical: 8,
         marginHorizontal: 16,
         flexDirection: 'row',

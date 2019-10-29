@@ -8,7 +8,7 @@ import GoBackButton from '../../../Components/GoBackButton';
 class SubdirectoryView extends Component {
     static navigationOptions = ({ navigation }: Props) => ({
         headerTitle: (
-            <Text style={styles.headerTitleText}>{navigation.getParam("subdirectory").title}</Text>
+            <Text style={styles.headerTitleText}>{navigation.getParam("subdirectoryTitle")}</Text>
         ),
         headerLeft: (<GoBackButton navigation={navigation}/>),
         headerRight: null,
@@ -20,9 +20,11 @@ class SubdirectoryView extends Component {
         super(props);
 
         this.state = {
-            subdirectory: props.navigation.getParam("subdirectory"),
+            subdirectoryKey: props.navigation.getParam("subdirectoryKey"),
+            subdirectoryTitle: props.navigation.getParam("subdirectoryTitle"),
 
-            messages: props.navigation.getParam("subdirectory").messages,
+            // messages: props.navigation.getParam("subdirectory").messages,
+            messages: [],
         }
     }
 

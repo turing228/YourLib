@@ -1,8 +1,8 @@
 import database from '@react-native-firebase/database';
- 
+
 database().setPersistenceEnabled(true);
-database().setPersistenceCacheSizeBytes(10000000); // 10MB
- 
+// database().setPersistenceCacheSizeBytes(10000000); // 10MB
+
 import React, { Component } from 'react';
 import { StatusBar } from 'react-native';
 

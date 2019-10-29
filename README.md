@@ -104,7 +104,9 @@ When the installation is complete, run with a version of your choice :
 | | UI: Global font sizes | ✔️28.10.2019 |
 | | Connect Firebase realtime database with the project | ✔️28.10.2019 |
 | | Write rules for the realtime database to store "notes" | ✔️28.10.2019 |
-| | Store/download/sync data with the realtime database | |
+| | Store/download/sync data with the realtime database: add and remove directories | ✔️29.10.2019 |
+| | Store/download/sync data with the realtime database: add and remove subdirectories | ✔️29.10.2019 |
+| | Store/download/sync data with the realtime database: add notes | |
 | | [Enable Firebase Database offline capabilities for Mobile app](https://invertase.io/oss/react-native-firebase/v6/database/quick-start) | ✔️28.10.2019 |
 | | Make new screenshots and add them to the repository | |
 |--|--|--|
@@ -123,6 +125,7 @@ When the installation is complete, run with a version of your choice :
 | | Ability to download all notes as a .json file | |
 | | Ability to download all notes as a .excel file | |
 | | Implement the report/feedback system | |
+| | Editing notes | |
 |--|--|--|
 | in future | **Kickstarter Сampaign** | |
 | | Implement smart Machine Learning based suggestions of categorizing | |
@@ -149,7 +152,6 @@ Here are just the first two slides of [the business presentation. Check it for m
 ## 📋 Technologies
 
 - [React Native](https://facebook.github.io/react-native/) - Facebook cross-platform (Android/IOS) mobile app development framework
-- [redux-persist](https://github.com/rt2zz/redux-persist) - to store data on the mobile device
 - [react-native-firebase](https://github.com/invertase/react-native-firebase) - library for using [Google Firebase](https://firebase.google.com) in the application
 - [react-navigation](https://github.com/react-navigation/react-navigation) - library for advanced navigation between screens of the application
  

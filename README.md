@@ -107,6 +107,7 @@ When the installation is complete, run with a version of your choice :
 | | Store/download/sync data with the realtime database: add and remove directories | ✔️29.10.2019 |
 | | Store/download/sync data with the realtime database: add and remove subdirectories | ✔️29.10.2019 |
 | | Store/download/sync data with the realtime database: add notes | ✔️29.10.2019 |
+| | All Notes Screen | ✔️29.10.2019 |
 | | [Enable Firebase Database offline capabilities for Mobile app](https://invertase.io/oss/react-native-firebase/v6/database/quick-start) | ✔️28.10.2019 |
 | | Make new screenshots and add them to the repository | |
 | | Make gif and add it to the repository | |
@@ -122,6 +123,8 @@ When the installation is complete, run with a version of your choice :
 | | Hide top bars during scrolling | |
 | | Editing/removing notes | |
 | | Whole directory screen | |
+| | Delete account button | |
+| | Current sync status | |
 | | "Create your first directory" screnario | |
 | | Nice tab navigation between subdirectories inside a directory | |
 | | Ability to reorder FlatLists (of directories and subdirectories) | |

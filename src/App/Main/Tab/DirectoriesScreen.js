@@ -14,10 +14,9 @@ getData = async (that) => {
 
     let userId = await firebase.auth().currentUser.uid;
 
-    let userDataRef = await firebase.database().ref('notes/' + userId);
+    let userDataRef = await firebase.database().ref('notes/' + userId + '/directories/');
 
     userDataRef.on('child_added', (data) => {
-        that.setState({ test: 'lol2' });
         notes[data.key] = data.val();
         that.setState({ notes: notes });
     })
@@ -33,11 +32,19 @@ getData = async (that) => {
     })
 }
 
+unsubscribeData = async () => {
+    let userId = await firebase.auth().currentUser.uid;
+
+    let userDataRef = await firebase.database().ref('notes/' + userId + '/directories/');
+
+    userDataRef.off();
+}
+
 deleteDirectoryFirebase = async (directoryKey) => {
     let userId = await firebase.auth().currentUser.uid;
 
     let directoryRef = await firebase.database().ref('notes/' + userId).child(directoryKey);
-    
+
     directoryRef.off();
     await directoryRef.remove();
 }
@@ -114,13 +121,13 @@ String.prototype.toRGB = function () {
     return `rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})`;
 }
 
-function Subdirectory({ directoryKey, subdirectory, navigation }) {
+function Subdirectory({ directoryKey, directoryTitle, subdirectory, navigation }) {
     let subdirectoryKey = subdirectory[0];
     let subdirectoryTitle = subdirectory[1].title;
     return (
         <View>
             {!navigation.getParam("editing") &&
-                <TouchableOpacity style={styles.subdirectory} onPress={() => navigation.navigate('Subdirectory', { directoryKey, subdirectoryKey, subdirectoryTitle })}>
+                <TouchableOpacity style={styles.subdirectory} onPress={() => navigation.navigate('Subdirectory', { directoryKey, directoryTitle, subdirectoryKey, subdirectoryTitle })}>
                     <Text style={styles.subdirectoryTitle}>• {subdirectoryTitle}</Text>
                 </TouchableOpacity>}
             {navigation.getParam("editing") &&
@@ -167,26 +174,28 @@ function Directory({ directory, navigation }) {
             </View>
             <View style={styles.subdirectories}>
                 <Text style={[styles.directoryTitle, { color: directoryTitle.toRGB() }]}>{directoryTitle}</Text>
-                <FlatList
-                    // data={subdirectories}
-                    data={Object.entries(subdirectories)}
-                    renderItem={({ item }) => <Subdirectory directoryKey={directoryKey} subdirectory={item} navigation={navigation} />}
-                    keyExtractor={(item) => item[0]}
-                    ListFooterComponent={<CreateNewSubirectory navigation={navigation} directoryKey={directoryKey} directoryTitle={directoryTitle} />}
-                />
+                {subdirectories &&
+                    <FlatList
+                        data={Object.entries(subdirectories)}
+                        renderItem={({ item }) => <Subdirectory directoryKey={directoryKey} directoryTitle={directoryTitle} subdirectory={item} navigation={navigation} />}
+                        keyExtractor={(item) => item[0]}
+                        ListFooterComponent={<CreateNewSubirectory navigation={navigation} directoryKey={directoryKey} directoryTitle={directoryTitle} />}
+                    />}
             </View>
         </View>
     );
 }
 
 class DirectoriesView extends Component {
-
     constructor(props) {
         super(props);
 
+        this.unsubscribe = null;
         this.state = {
 
             user: null,
+
+            token: null,
 
             editing: props.navigation.getParam('editing', false),
 
@@ -194,134 +203,34 @@ class DirectoriesView extends Component {
 
             notes: {},
 
-            test: '',
-
-            directories: [
-                {
-                    id: '0',
-                    title: 'My Home',
-                    subdirectories: [
-                        {
-                            id: '0',
-                            title: 'events',
-                            messages: [
-                                {
-                                    _id: '0',
-                                    text: 'Celebrating grandmother\'s birthday at 18:00 on October 29',
-                                    createdAt: new Date(),
-                                    user: {
-                                        _id: 1,
-                                        name: 'I',
-                                        // avatar: 'https://placeimg.com/140/140/any',
-                                    },
-                                },
-                            ],
-                        },
-                        {
-                            id: '1',
-                            title: 'hw',
-                        },
-                        {
-                            id: '2',
-                            title: 'links',
-                        },
-                    ]
-                },
-                {
-                    id: '1',
-                    title: 'Work',
-                    subdirectories: [
-                        {
-                            id: '0',
-                            title: 'events',
-                        },
-                        {
-                            id: '1',
-                            title: 'links',
-                        },
-                    ]
-                },
-                {
-                    id: '2',
-                    title: 'University',
-                    subdirectories: [
-                        {
-                            id: '0',
-                            title: 'events',
-                            messages: [
-                                {
-                                    _id: 0,
-                                    text: 'Test work on mathematical analysis 15:20 November 2',
-                                    createdAt: new Date(),
-                                    user: {
-                                        _id: 2,
-                                        name: 'Telegram',
-                                        // avatar: 'https://placeimg.com/140/140/any',
-                                    },
-                                },
-                                {
-                                    _id: 1,
-                                    text: 'Startup workshop 18:30 on November 10 in audience 285',
-                                    createdAt: new Date(),
-                                    user: {
-                                        _id: 1,
-                                        name: 'I',
-                                        // avatar: 'https://placeimg.com/140/140/any',
-                                    },
-                                },
-                                {
-                                    _id: 2,
-                                    text: 'Deadline for homework on algorithms and data structures November 15',
-                                    createdAt: new Date(),
-                                    user: {
-                                        _id: 1,
-                                        name: 'I',
-                                        // avatar: 'https://placeimg.com/140/140/any',
-                                    },
-                                },
-                            ],
-                        },
-                        {
-                            id: '1',
-                            title: 'hw',
-                        },
-                        {
-                            id: '2',
-                            title: 'books',
-                        },
-                        {
-                            id: '3',
-                            title: 'links',
-                        },
-                    ]
-                },
-                {
-                    id: '3',
-                    title: 'University',
-                },
-                {
-                    id: '4',
-                    title: 'University',
-                },
-                {
-                    id: '5',
-                    title: 'University',
-                },
-                {
-                    id: '6',
-                    title: 'University',
-                },
-                {
-                    id: '7',
-                    title: 'University',
-                },
-            ],
-
+            directories: [],
         }
     }
 
     componentDidMount() {
-        getData(this);
+        this.unsubscribe = firebase.auth().onAuthStateChanged(async (user) => {
+            if (user) {
+                this.setState({ token: await user.getIdToken() });
+                this.setState({ user: await user.toJSON() });
+                getData(this);
+            } else {
+                // User has been signed out, reset the state
+                this.setState({
+                    userObject: null,
+                    user: null,
+                    message: '',
+                    codeInput: '',
+                    phoneNumber: '+7',
+                    confirmResult: null,
+                });
+            }
+        });
+    }
+
+    componentWillUnmount() {
+        if (user) {
+            unsubscribeData();
+        }
     }
 
     ListHeader() {
@@ -340,7 +249,6 @@ class DirectoriesView extends Component {
         return (
             <SafeAreaView style={styles.safeAreaView}>
                 <FlatList
-                    // data={this.state.directories}
                     data={Object.entries(this.state.notes)}
                     renderItem={({ item }) => <Directory directory={item} navigation={this.props.navigation} />}
                     keyExtractor={(item) => item[0]}

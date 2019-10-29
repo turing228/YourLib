@@ -5,47 +5,49 @@
         ".read": "$user_id === auth.uid",
         ".write": "$user_id === auth.uid",
 
-        "$directories": {
-          ".validate": "newData.hasChildren(['title'])",
-            
-          "title": {
-            ".validate": "newData.isString() && newData.val().length > 0 && newData.val().length < 127",
-          },
+        "directories": {
+          "$directories": {
+            ".validate": "newData.hasChildren(['title'])",
 
-          "subdirectories": {
-            "$subdirectories": {
-              ".validate": "newData.hasChildren(['title'])",
+            "title": {
+              ".validate": "newData.isString() && newData.val().length > 0 && newData.val().length < 127",
+            },
 
-              "title": {
-                ".validate": "newData.isString() && newData.val().length > 0 && newData.val().length < 127",
-              },
+            "subdirectories": {
+              "$subdirectories": {
+                ".validate": "newData.hasChildren(['title'])",
 
-              "messages": {
-                "$messages": {
-                  ".validate": "newData.hasChildren(['text', 'timestamp'])",
+                "title": {
+                  ".validate": "newData.isString() && newData.val().length > 0 && newData.val().length < 127",
+                },
 
-                  "user_id": {
-                    ".validate": "newData.isString() && newData.val().length > 0 && newData.val().length < 4097"
-                  },
-                  "text": {
-                    ".validate": "newData.isString() && newData.val().length > 0 && newData.val().length < 4097"
-                  },
-                  "timestamp": { 
-                    ".validate": "newData.val() <= now" 
-                  },
+                "messages": {
+                  "$messages": {
+                    ".validate": "newData.hasChildren(['text', 'timestamp'])",
 
-                  "$other": { 
-                    ".validate": false 
+                    "user_id": {
+                      ".validate": "newData.isString() && newData.val().length > 0 && newData.val().length < 4097"
+                    },
+                    "text": {
+                      ".validate": "newData.isString() && newData.val().length > 0 && newData.val().length < 4097"
+                    },
+                    "timestamp": { 
+                      ".validate": "newData.val() <= now" 
+                    },
+
+                    "$other": { 
+                      ".validate": false 
+                    },
                   },
                 },
               },
             },
-          },
-          
-        	"$other": { 
-          	".validate": false 
-          },
-        },  
+
+            "$other": { 
+              ".validate": false 
+            },
+          },  
+        },
       },
     },
   },

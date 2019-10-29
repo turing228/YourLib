@@ -13,7 +13,7 @@ import '@react-native-firebase/auth';
 addSubdirectory = async (directoryKey, title) => {
     let userId = await firebase.auth().currentUser.uid;
 
-    let directoryRef = await firebase.database().ref('notes/' + userId + '/' + directoryKey + '/subdirectories/');
+    let directoryRef = await firebase.database().ref('notes/' + userId + '/directories/' + directoryKey + '/subdirectories/');
 
     directoryRef.push({
         title: title,
@@ -99,10 +99,9 @@ class CreateNewSubdirectoryView extends Component {
             <SafeAreaView style={styles.safeAreaView}>
                 <View style={styles.content}>
                     <Text style={styles.text}>Directory: {this.state.directoryTitle}</Text>
-                    <Text style={styles.text}>Directory: {this.state.directoryKey}</Text>
                     <Text style={styles.text}></Text>
                     <Text style={styles.text}>Enter the name of the new subdirectory:</Text>
-                    <TextInput style={styles.textInput} autoFocus={true} onChangeText={(text) => this.setState({ title: text })} />
+                    <TextInput style={styles.textInput} autoFocus={true} autoCapitalize={'none'} onChangeText={(text) => this.setState({ title: text })} />
                 </View>
             </SafeAreaView>
         )

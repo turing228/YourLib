@@ -12,7 +12,7 @@ import '@react-native-firebase/auth';
 addNote = async (directoryKey, subdirectoryKey, text) => {
     let userId = await firebase.auth().currentUser.uid;
 
-    let subdirectoryRef = await firebase.database().ref('notes/' + userId + '/' + directoryKey + '/subdirectories/' + subdirectoryKey + '/messages/');
+    let subdirectoryRef = await firebase.database().ref('notes/' + userId + '/directories/' + directoryKey + '/subdirectories/' + subdirectoryKey + '/messages/');
 
     subdirectoryRef.push({
         text: text,
@@ -24,7 +24,7 @@ addNote = async (directoryKey, subdirectoryKey, text) => {
 getNotes = async (directoryKey, subdirectoryKey, that) => {
     let userId = await firebase.auth().currentUser.uid;
 
-    let subdirectoryRef = await firebase.database().ref('notes/' + userId + '/' + directoryKey + '/subdirectories/' + subdirectoryKey + '/messages/');
+    let subdirectoryRef = await firebase.database().ref('notes/' + userId + '/directories/' + directoryKey + '/subdirectories/' + subdirectoryKey + '/messages/');
 
     subdirectoryRef.on('value', (dataSnapshot) => {
         let notesFB = [];
@@ -34,8 +34,8 @@ getNotes = async (directoryKey, subdirectoryKey, that) => {
                 text: child.val().text,
                 createdAt: child.val().timestamp,
                 user: {
-                    _id: child.val().id,
-                    name: 'kek',
+                    _id: 1,
+                    // name: 'kek',
                 }
             }), ...notesFB];
         });
@@ -47,7 +47,7 @@ getNotes = async (directoryKey, subdirectoryKey, that) => {
 class SubdirectoryView extends Component {
     static navigationOptions = ({ navigation }: Props) => ({
         headerTitle: (
-            <Text style={styles.headerTitleText}>{navigation.getParam("subdirectoryTitle")}</Text>
+            <Text style={styles.headerTitleText}>{navigation.getParam("directoryTitle")}/{navigation.getParam("subdirectoryTitle")}</Text>
         ),
         headerLeft: (<GoBackButton navigation={navigation}/>),
         headerRight: null,

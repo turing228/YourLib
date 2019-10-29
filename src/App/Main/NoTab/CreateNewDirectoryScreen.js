@@ -13,7 +13,7 @@ import '@react-native-firebase/auth';
 addDirectory = async (title) => {
     let userId = await firebase.auth().currentUser.uid;
 
-    let userDataRef = await firebase.database().ref('notes/' + userId);
+    let userDataRef = await firebase.database().ref('notes/' + userId + '/directories/');
 
     userDataRef.push({
         title: title,

@@ -88,7 +88,6 @@ export default class PhoneAuthTest extends Component {
                     placeholder={'Phone number ... '}
                     value={phoneNumber}
                 />
-                {/* <Button title="Sign In" color="green" onPress={this.signIn} /> */}
                 <TouchableOpacity style={styles.signInButton} onPress={this.signIn}>
                     <Text style={styles.signInText}>Sign In</Text>
                 </TouchableOpacity>
@@ -132,30 +131,14 @@ export default class PhoneAuthTest extends Component {
         return (
             <SafeAreaView style={styles.safeAreaView}>
                 <View style={styles.content}>
-                    {!user && !confirmResult && this.renderPhoneNumberInput}
+                    {!user && !confirmResult && this.renderPhoneNumberInput()}
 
-                    {!user && confirmResult && this.renderVerificationCodeInput}
+                    {!user && confirmResult && this.renderVerificationCodeInput()}
                     
                     {this.renderMessage()}
 
                     {user &&
                         this.props.navigation.navigate('Settings')
-                        // (
-                        //     <View
-                        //         style={{
-                        //             padding: 15,
-                        //             justifyContent: 'center',
-                        //             alignItems: 'center',
-                        //             backgroundColor: '#77dd77',
-                        //             flex: 1,
-                        //         }}
-                        //     >
-                        //         <Image source={{ uri: successImageUri }} style={{ width: 100, height: 100, marginBottom: 25 }} />
-                        //         <Text style={{ fontSize: 25 }}>Signed In!</Text>
-                        //         <Text>{JSON.stringify(user)}</Text>
-                        //         <Button title="Sign Out" color="red" onPress={this.signOut} />
-                        //     </View>
-                        // )
                     }
                 </View>
             </SafeAreaView>
@@ -167,8 +150,6 @@ const styles = StyleSheet.create({
     safeAreaView: {
         backgroundColor: 'aliceblue',
         flex: 1,
-        // paddingHorizontal: 16,
-        // paddingVertical: 8,
     },
     headerTitleText: {
         marginLeft: 16,

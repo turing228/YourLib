@@ -18,13 +18,33 @@ class SettingsView extends Component {
     constructor(props) {
         super(props);
 
+        this.unsubscribe = null;
         this.state = {
-            user: firebase.auth().currentUser.uid,
+            user: null,
         }
     }
 
     componentDidMount() {
+        this.unsubscribe = firebase.auth().onAuthStateChanged(async (user) => {
+            if (user) {
+                this.setState({token: await user.getIdToken()});
+                this.setState({user: await user.toJSON()});
+            } else {
+                // User has been signed out, reset the state
+                this.setState({
+                    userObject: null,
+                    user: null,
+                    message: '',
+                    codeInput: '',
+                    phoneNumber: '+7',
+                    confirmResult: null,
+                });
+            }
+        });
+    }
 
+    componentWillUnmount() {
+        if (this.unsubscribe) this.unsubscribe();
     }
 
     signOut = () => {

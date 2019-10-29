@@ -59,42 +59,81 @@ When the installation is complete, run with a version of your choice :
 
 ## 🍔 Screenshots
 
-<p align="center">
+### Main Pages
+
+<p>
+  <img src="/examples/UI/4.jpg" width="160">
+  <img src="/examples/UI/13.jpg" width="160">
+  <img src="/examples/UI/12.jpg" width="160">
+  <img src="/examples/UI/16.jpg" width="160">
+  <img src="/examples/UI/19.jpg" width="160">
+</p>
+
+### All Pages!
+<details>
+  <summary>Click to view all screenshots!</summary>
+
+### First Pages
+<p>
   <img src="/examples/UI/1.jpg" width="200">
   <img src="/examples/UI/2.jpg" width="200">
+</p>
+
+### Registration
+<p>
   <img src="/examples/UI/3.jpg" width="200">
   <img src="/examples/UI/4.jpg" width="200">
-</p>
-<p align="center">
   <img src="/examples/UI/5.jpg" width="200">
   <img src="/examples/UI/6.jpg" width="200">
+</p>
+
+### Create Directories
+<p>
   <img src="/examples/UI/7.jpg" width="200">
   <img src="/examples/UI/8.jpg" width="200">
-</p>
-<p align="center">
   <img src="/examples/UI/9.jpg" width="200">
+</p>
+
+### Create Subdirectories
+<p>
   <img src="/examples/UI/10.jpg" width="200">
   <img src="/examples/UI/11.jpg" width="200">
   <img src="/examples/UI/12.jpg" width="200">
-</p>
-<p align="center">
   <img src="/examples/UI/13.jpg" width="200">
+</p>
+
+### Create Notes
+<p>
   <img src="/examples/UI/14.jpg" width="200">
   <img src="/examples/UI/15.jpg" width="200">
   <img src="/examples/UI/16.jpg" width="200">
 </p>
-<p align="center">
+
+### All Notes Screen
+<p>
   <img src="/examples/UI/17.jpg" width="200">
+</p>
+
+### Remove Subdirectory
+<p>
   <img src="/examples/UI/18.jpg" width="200">
   <img src="/examples/UI/19.jpg" width="200">
   <img src="/examples/UI/20.jpg" width="200">
 </p>
-<p align="center">
+
+### Remove Directory
+<p>
+  <img src="/examples/UI/20.jpg" width="200">
   <img src="/examples/UI/21.jpg" width="200">
   <img src="/examples/UI/22.jpg" width="200">
   <img src="/examples/UI/23.jpg" width="200">
+</p>
+
+### All Notes Screen Again
+<p>
   <img src="/examples/UI/24.jpg" width="200">
 </p>
+</details>
 
 ## 🚄 Roadmap
 

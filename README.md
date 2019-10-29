@@ -157,7 +157,7 @@ When the installation is complete, run with a version of your choice :
 | | UI: Bullet points in subdirectories list | ✔️26.10.2019 |
 | | UI: Ability to delete directories or subdirectories | ✔️26.10.2019 |
 | | UI: Alert before permanently deleting | ✔️26.10.2019 |
-| | UI: Side bar navigation (between home and settings) | ✔️26.10.2019 |
+| | UI: Sidebar navigation (between home and settings) | ✔️26.10.2019 |
 | | Spaghetti Code | ✔️26.10.2019 |
 | | Fix spaghetti code (restructure project architecture) | ✔️28.10.2019 |
 | | Connect Firebase auth with the project | ✔️26.10.2019 |
@@ -186,7 +186,7 @@ When the installation is complete, run with a version of your choice :
 | | Whole directory screen | |
 | | Delete account button | |
 | | Current sync status | |
-| | "Create your first directory" screnario | |
+| | "Create your first directory" scenario | |
 | | Nice events-view (\& ability to add to google calendar) | |
 | | Nice tab navigation between subdirectories inside a directory | |
 | | Ability to reorder FlatLists (of directories and subdirectories) | |

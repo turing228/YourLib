@@ -60,17 +60,40 @@ When the installation is complete, run with a version of your choice :
 ## 🍔 Screenshots
 
 <p align="center">
-  <img src="/examples/UI/Home%20Page.jpg" width="250" title="Home Page">
-  <img src="/examples/UI/Home%20Page%20create%20new.jpg" width="250" title="Home Page create new">
+  <img src="/examples/UI/1.jpg" width="200">
+  <img src="/examples/UI/2.jpg" width="200">
+  <img src="/examples/UI/3.jpg" width="200">
+  <img src="/examples/UI/4.jpg" width="200">
 </p>
 <p align="center">
-  <img src="/examples/UI/Create%20New%20Directory.jpg" width="250" title="Create New Directory">
-  <img src="/examples/UI/Create%20New%20Directory%20Internships.jpg" width="250" title="Create New Directory Internships">
-  <img src="/examples/UI/Create%20New%20Subdirectory.jpg" width="250" title="Create New Subdirectory">
+  <img src="/examples/UI/5.jpg" width="200">
+  <img src="/examples/UI/6.jpg" width="200">
+  <img src="/examples/UI/7.jpg" width="200">
+  <img src="/examples/UI/8.jpg" width="200">
 </p>
 <p align="center">
-  <img src="/examples/UI/Inside%20Subdirectory.jpg" width="250" title="Inside Subdirectory">
-  <img src="/examples/UI/All%20Notes%20Page.jpg" width="250" title="All Notes Page">
+  <img src="/examples/UI/9.jpg" width="200">
+  <img src="/examples/UI/10.jpg" width="200">
+  <img src="/examples/UI/11.jpg" width="200">
+  <img src="/examples/UI/12.jpg" width="200">
+</p>
+<p align="center">
+  <img src="/examples/UI/13.jpg" width="200">
+  <img src="/examples/UI/14.jpg" width="200">
+  <img src="/examples/UI/15.jpg" width="200">
+  <img src="/examples/UI/16.jpg" width="200">
+</p>
+<p align="center">
+  <img src="/examples/UI/17.jpg" width="200">
+  <img src="/examples/UI/18.jpg" width="200">
+  <img src="/examples/UI/19.jpg" width="200">
+  <img src="/examples/UI/20.jpg" width="200">
+</p>
+<p align="center">
+  <img src="/examples/UI/21.jpg" width="200">
+  <img src="/examples/UI/22.jpg" width="200">
+  <img src="/examples/UI/23.jpg" width="200">
+  <img src="/examples/UI/24.jpg" width="200">
 </p>
 
 ## 🚄 Roadmap
@@ -109,7 +132,7 @@ When the installation is complete, run with a version of your choice :
 | | Store/download/sync data with the realtime database: add notes | ✔️29.10.2019 |
 | | All Notes Screen | ✔️29.10.2019 |
 | | [Enable Firebase Database offline capabilities for Mobile app](https://invertase.io/oss/react-native-firebase/v6/database/quick-start) | ✔️28.10.2019 |
-| | Make new screenshots and add them to the repository | |
+| | Make new screenshots and add them to the repository | ✔️29.10.2019 |
 |--|--|--|
 | unplanned | **Feel free to implement this or suggest something new and make a pull request!** | |
 | | Make the color-theme selectable | |

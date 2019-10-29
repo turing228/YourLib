@@ -114,7 +114,7 @@ When the installation is complete, run with a version of your choice :
 | | Make "all notes" screen | ✔️25.10.2019 |
 | | Make screenshots and add them to the repository | ✔️25.10.2019 |
 |--|--|--|
-| 0.2 | **Cloud Sync and a lot of UI-work** | |
+| 0.2 | **Cloud Sync and a lot of UI-work** | ✔️29.10.2019 |
 | | UI: Bullet points in subdirectories list | ✔️26.10.2019 |
 | | UI: Ability to delete directories or subdirectories | ✔️26.10.2019 |
 | | UI: Alert before permanently deleting | ✔️26.10.2019 |

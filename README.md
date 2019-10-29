@@ -61,12 +61,12 @@ When the installation is complete, run with a version of your choice :
 
 ### Main Pages
 
-<p>
-  <img src="/examples/UI/4.jpg" width="160">
-  <img src="/examples/UI/13.jpg" width="160">
-  <img src="/examples/UI/12.jpg" width="160">
-  <img src="/examples/UI/16.jpg" width="160">
-  <img src="/examples/UI/19.jpg" width="160">
+<p align="center">
+  <img src="/examples/UI/4.jpg" width="170">
+  <img src="/examples/UI/13.jpg" width="170">
+  <img src="/examples/UI/12.jpg" width="170">
+  <img src="/examples/UI/16.jpg" width="170">
+  <img src="/examples/UI/19.jpg" width="170">
 </p>
 
 ### All Pages!

@@ -25,6 +25,14 @@ How often do you save important information by sending it to yourself on social 
 
 Cross-platform open-source project **YourLib** based on React Native framework lets you categorize immediately it in a tree-style (e.g.  ”school”, ”work”, ”home” and in each ”events”, ”links”, ”books”) and sync it with Google Firebase cloud.
 
+### Use Cases or Questions to You
+
+  1. How do you store all .pdf textbooks or links to them? It's Mathematical Analysis, Probability Theory, Discrete Mathematics, Economics, History, Foreign Language and a lot of other textbooks!
+  2. Do you like to cook? How do you don't forget all amazing recipes, lifehacks?
+  3. How do you remember everything what is not written anywhere on the Internet? For example: nice bars, night clubs, places for walking with you friends
+
+This application is designed to solve these and other your problems!
+
 ## Contents
 
 - [🚀 Quickstart](#-quickstart)
